@@ -1,0 +1,26 @@
+{
+  "name": "tct365-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node -r ./scripts/exfat-fix.cjs node_modules/next/dist/bin/next dev",
+    "build": "node -r ./scripts/exfat-fix.cjs node_modules/next/dist/bin/next build",
+    "start": "node -r ./scripts/exfat-fix.cjs node_modules/next/dist/bin/next start",
+    "test": "node --test tests/unit.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "^2.8.2",
+    "marked": "^18.1.1",
+    "next": "^15.5.28",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

@@ -13,14 +13,14 @@ Mọi script đi qua `node -r ./scripts/exfat-fix.cjs …/next` — vá lỗi `E
 ## Cấu trúc
 ```
 app/                    Trang (App Router)
-  page.js               Trang chủ: hero 3D, giới thiệu, dịch vụ, quy trình, khách hàng, bài viết, liên hệ (ISR 60s)
+  page.js               Trang chủ: hero 3D → Tin tức (dải chạy, 20 bài mới nhất) → giới thiệu → dịch vụ → quy trình → khách hàng → liên hệ (ISR 60s)
   dich-vu/[slug]/       Chi tiết dịch vụ (SSG từ data/services.js)
   bai-viet/             Danh sách + chi tiết bài (dynamic, đọc từ lib/posts)
   admin/                Đăng nhập, danh sách bài, trình soạn Markdown
   api/                  login, logout, posts (POST), posts/[slug] (PUT, DELETE), upload
   uploads/[name]/       Phục vụ ảnh upload khi chạy local
   globals.css           Toàn bộ CSS: tokens màu ở :root, cảnh 3D, quỹ đạo logo
-components/             Header, Footer, Hero3D (CSS 3D), ClientRing (quỹ đạo logo), TiltCard, PostCard, Icons (SVG), admin/*
+components/             Header, Footer, Hero3D (CSS 3D), NewsTicker (dải tin), ClientRing (quỹ đạo logo), TiltCard, PostCard, Icons (Lucide SVG), admin/*
 data/site.js            Thông tin công ty, giới thiệu, quy trình, chuyên mục bài viết
 data/services.js        4 nhóm + 17 dịch vụ (nội dung trang dịch vụ)
 lib/posts.js            Đọc/ghi bài viết + upload ảnh (Vercel Blob hoặc file local)
@@ -28,7 +28,8 @@ lib/auth.js, token.js   Xác thực admin: cookie `tct_admin` = `exp.HMAC(exp, A
 lib/frontmatter.js      Frontmatter tối giản, giá trị là JSON string
 lib/clients.js          Đọc logo khách hàng từ public/clients/
 content/posts/*.md      Bài mẫu đi kèm repo
-public/clients/         Logo khách hàng — thêm file ảnh là tự hiện
+public/clients/         Logo khách hàng — thêm file ảnh là tự vào vòng quay (xem HUONG-DAN.txt)
+public/images/          Ảnh nền Unsplash (nguồn trong NGUON-ANH.txt)
 ```
 
 ## Quy tắc nội dung (bắt buộc)
@@ -38,11 +39,12 @@ public/clients/         Logo khách hàng — thêm file ảnh là tự hiện
 - Văn phong: câu ngắn, chủ động, nói lợi ích thật từ nội dung gốc, không cam kết mới.
 
 ## Thiết kế
-- Màu thương hiệu (từ logo): teal `#036B68`, vàng đồng `#D99A2B`; token ở `:root` trong `globals.css`.
+- Tông sáng (theo yêu cầu khách, không bắt buộc màu logo): xanh dương `#1E40AF`, cam hổ phách `#F59E0B`, nền trắng/`#F0F6FF`; token ở `:root` trong `globals.css`.
 - Font: Be Vietnam Pro (next/font, subset vietnamese).
-- Điểm nhấn duy nhất: cảnh 3D ở hero + quỹ đạo logo khách hàng. Phần còn lại giữ tĩnh — không thêm hiệu ứng fade-in rải rác.
-- Quỹ đạo logo dùng `@property --t` + `cos()` CSS; dừng khi hover/focus/nút “Tạm dừng”; `prefers-reduced-motion` tắt mọi animation.
-- Icon: SVG tự vẽ trong `components/Icons.js`, không dùng emoji.
+- Chuyển động: cảnh 3D ở hero, dải Tin tức chạy phải→trái (5 thẻ/màn desktop, 3 tablet, 1.6 mobile; dừng khi hover), quỹ đạo logo khách hàng. Phần còn lại giữ tĩnh.
+- Quỹ đạo logo dùng `@property --t` + `cos()` CSS, quay liên tục (khách yêu cầu: không nút dừng, không dừng khi hover). `prefers-reduced-motion` của hệ điều hành vẫn tắt animation.
+- Dải tin: `NEWS_LIMIT = 20` trong `app/page.js`; danh sách nhân đôi để lặp liền mạch, bản sao `aria-hidden`.
+- Icon: Lucide (ISC) nhúng SVG trong `components/Icons.js`, không dùng emoji. Nút: `btn-primary`, `btn-accent`, `btn-ghost`.
 
 ## Lưu trữ bài viết
 - `BLOB_READ_WRITE_TOKEN` có → Vercel Blob: `posts/<slug>/post-<random>.md` (mỗi lần lưu một URL mới, xoá bản cũ để tránh CDN cache), `deleted/<slug>` = dấu xoá bài mẫu repo, `uploads/…` = ảnh.

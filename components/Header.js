@@ -8,7 +8,7 @@ const nav = [
   ['/#dich-vu', 'Dịch vụ'],
   ['/#quy-trinh', 'Quy trình'],
   ['/#khach-hang', 'Khách hàng'],
-  ['/bai-viet', 'Bài viết'],
+  ['/bai-viet', 'Tin tức'],
   ['/#lien-he', 'Liên hệ'],
 ];
 
@@ -26,14 +26,14 @@ export default function Header() {
         <nav className="nav-desktop" aria-label="Điều hướng chính">
           {nav.map(([href, label]) => <Link key={href} href={href}>{label}</Link>)}
         </nav>
-        <a className="btn btn-gold header-call" href={telHref}>
+        <a className="btn btn-accent header-call" href={telHref}>
           <Icon name="phone" size={18} /> {site.hotline}
         </a>
         <details className="nav-mobile">
           <summary aria-label="Mở menu"><Icon name="menu" /></summary>
           <nav aria-label="Điều hướng di động">
             {nav.map(([href, label]) => <Link key={href} href={href}>{label}</Link>)}
-            <a className="btn btn-gold" href={telHref}><Icon name="phone" size={18} /> Gọi {site.hotline}</a>
+            <a className="btn btn-accent" href={telHref}><Icon name="phone" size={18} /> Gọi {site.hotline}</a>
           </nav>
         </details>
       </div>

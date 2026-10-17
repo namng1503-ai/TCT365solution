@@ -1,0 +1,4 @@
+Ảnh lấy từ Unsplash (giấy phép https://unsplash.com/license — dùng miễn phí cho mục đích thương mại, không bắt buộc ghi nguồn).
+- hero-thue.webp: https://images.unsplash.com/photo-1554224155-6726b3ff858f
+- ky-ho-so.webp:  https://images.unsplash.com/photo-1450101499163-c8848c66ca85
+Icon: Lucide (https://lucide.dev), giấy phép ISC — nhúng trong components/Icons.js.

@@ -34,8 +34,8 @@ export default async function AdminHome() {
           <small>{posts.length} bài · Lưu tại: {store}</small>
         </div>
         <div className="actions">
-          <Link className="btn btn-gold" href="/admin/editor">Viết bài mới</Link>
-          <Link className="btn btn-ghost" href="/bai-viet" target="_blank">Xem trang bài viết</Link>
+          <Link className="btn btn-accent" href="/admin/editor">Viết bài mới</Link>
+          <Link className="btn btn-ghost" href="/bai-viet" target="_blank">Xem trang tin tức</Link>
           <LogoutButton />
         </div>
       </div>

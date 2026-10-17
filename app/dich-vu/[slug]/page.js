@@ -56,7 +56,7 @@ export default async function ServicePage({ params }) {
             <div className="aside-card">
               <h2>Nhận báo giá cho hồ sơ của bạn</h2>
               <p>Chi phí phụ thuộc quy mô và tình trạng hồ sơ thực tế. Liên hệ để được tư vấn cụ thể.</p>
-              <a className="btn btn-gold" href={telHref}><Icon name="phone" size={18} /> {site.hotline}</a>
+              <a className="btn btn-accent" href={telHref}><Icon name="phone" size={18} /> {site.hotline}</a>
               <a className="btn btn-ghost" href={site.zalo} target="_blank" rel="noopener noreferrer"><Icon name="chat" size={18} /> Nhắn Zalo</a>
               <p className="aside-note">Email: {site.email}</p>
             </div>

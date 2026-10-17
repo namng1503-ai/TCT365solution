@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { site, telHref } from '@/data/site';
-import { groups, servicesByGroup } from '@/data/services';
+import { services } from '@/data/services';
+
+const featured = ['ke-toan-thue-tron-goi', 'ke-khai-thue', 'quyet-toan-thue', 'lap-bao-cao-tai-chinh', 'thanh-lap-cong-ty', 'hoa-don-dien-tu-chu-ky-so'];
 
 export default function Footer() {
   return (
@@ -8,26 +10,22 @@ export default function Footer() {
       <div className="wrap footer-grid">
         <div>
           <p className="footer-name">{site.name}</p>
-          <p>{site.slogan}.</p>
-          <p>Địa chỉ: {site.address}</p>
-          <p>Hotline: <a href={telHref}>{site.hotline}</a> ({site.hotlineContact})</p>
-          <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p>{site.address}</p>
+          <p>Hotline: <a href={telHref}>{site.hotline}</a> · Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
           <p>Mã số thuế: {site.taxCode}</p>
         </div>
-        {groups.slice(0, 2).map(g => (
-          <div key={g.id}>
-            <p className="footer-head">{g.title}</p>
-            <ul>
-              {servicesByGroup(g.id).map(s => <li key={s.slug}><Link href={`/dich-vu/${s.slug}`}>{s.title}</Link></li>)}
-            </ul>
-          </div>
-        ))}
+        <div>
+          <p className="footer-head">Dịch vụ tiêu biểu</p>
+          <ul className="footer-links">
+            {services.filter(s => featured.includes(s.slug)).map(s => <li key={s.slug}><Link href={`/dich-vu/${s.slug}`}>{s.title}</Link></li>)}
+          </ul>
+        </div>
         <div>
           <p className="footer-head">Kết nối</p>
-          <ul>
+          <ul className="footer-links footer-links-1">
             <li><a href={site.zalo} target="_blank" rel="noopener noreferrer">Zalo</a></li>
             <li><a href={site.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><Link href="/bai-viet">Bài viết chuyên môn</Link></li>
+            <li><Link href="/bai-viet">Tin tức</Link></li>
           </ul>
         </div>
       </div>

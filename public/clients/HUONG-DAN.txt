@@ -1,0 +1,17 @@
+THƯ MỤC LOGO KHÁCH HÀNG
+=======================
+
+Mọi file ảnh trong thư mục này (public/clients/) tự động xuất hiện trên vòng quay 3D "Khách hàng đồng hành" ở trang chủ.
+
+Thêm khách hàng:
+  1. Chép file logo vào đây. Định dạng: .png .jpg .jpeg .webp .svg .gif .avif
+  2. Đặt tên file theo tên khách hàng, ví dụ: cong-ty-abc.png  (tên này dùng làm mô tả ảnh)
+  3. Nên cắt sát viền logo, nền trắng hoặc trong suốt, rộng 300–600px.
+  4. Đẩy lên GitHub:
+       git add public/clients
+       git commit -m "Them logo khach hang"
+       git push
+     Vercel tự deploy lại sau khoảng 1–2 phút.
+
+Xoá khách hàng: xoá file logo rồi làm bước 4.
+File này (.txt) không hiển thị trên website.

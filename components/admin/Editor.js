@@ -77,7 +77,7 @@ export default function Editor({ initial, categories, justSaved }) {
         <div className="actions">
           <Link className="btn btn-ghost" href="/admin">Về danh sách</Link>
           {!isNew && <Link className="btn btn-ghost" href={`/bai-viet/${initial.slug}`} target="_blank">Xem bài</Link>}
-          <button className="btn btn-gold" type="submit" disabled={busy !== ''}>{busy === 'save' ? 'Đang lưu…' : isNew ? 'Đăng bài' : 'Lưu thay đổi'}</button>
+          <button className="btn btn-accent" type="submit" disabled={busy !== ''}>{busy === 'save' ? 'Đang lưu…' : isNew ? 'Đăng bài' : 'Lưu thay đổi'}</button>
         </div>
       </div>
       {msg && <p className={msg.type === 'error' ? 'form-error' : 'form-ok'} role={msg.type === 'error' ? 'alert' : 'status'}>{msg.text}</p>}
@@ -132,7 +132,7 @@ export default function Editor({ initial, categories, justSaved }) {
         <div className="editor-preview" aria-label="Xem trước">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           {post.cover && <img src={post.cover} alt="" style={{ borderRadius: 12, marginBottom: 16 }} />}
-          <h1 style={{ fontSize: 28, color: 'var(--teal-deep)' }}>{post.title || 'Tiêu đề bài viết'}</h1>
+          <h1 style={{ fontSize: 28, color: 'var(--primary-ink)' }}>{post.title || 'Tiêu đề bài viết'}</h1>
           <div className="prose" dangerouslySetInnerHTML={{ __html: preview }} />
         </div>
       </div>

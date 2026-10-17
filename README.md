@@ -77,7 +77,7 @@ Từ đó, mỗi lần `git push` lên nhánh `main`, Vercel tự deploy lại.
    | `[TCT365](https://tct365-tax.com)` | Liên kết |
 
    Bấm **Chèn ảnh vào nội dung** để tải ảnh và chèn tại vị trí con trỏ.
-5. Bấm **Đăng bài**. Bài hiện ngay ở trang **Bài viết** và mục bài viết mới trên trang chủ (tối đa sau 1 phút).
+5. Bấm **Đăng bài**. Bài hiện ngay ở trang **Tin tức** và trong dải Tin tức chạy trên trang chủ (dải chỉ lấy 20 bài mới nhất).
 6. Sửa/xoá bài: vào `/admin` → **Sửa** hoặc **Xoá** (bấm **Xác nhận xoá**).
 
 Chuyên mục mặc định: Thuế, Kế toán, Tài chính, Doanh nghiệp, Bảo hiểm — sửa trong `data/site.js` (`postCategories`).
@@ -97,7 +97,7 @@ git commit -m "Thêm logo khách hàng"
 git push
 ```
 
-Vercel tự deploy lại, logo mới xuất hiện trên vòng quỹ đạo. Xoá logo: xoá file rồi push.
+Vercel tự deploy lại, logo mới xuất hiện trên vòng quay 3D. Xoá logo: xoá file rồi push. Hướng dẫn cũng có trong `public/clients/HUONG-DAN.txt`.
 
 ---
 

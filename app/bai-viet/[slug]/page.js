@@ -24,7 +24,7 @@ export default async function PostPage({ params }) {
       <section className="page-hero">
         <div className="wrap article">
           <nav className="crumbs" aria-label="Đường dẫn">
-            <Link href="/">Trang chủ</Link> / <Link href="/bai-viet">Bài viết</Link>
+            <Link href="/">Trang chủ</Link> / <Link href="/bai-viet">Tin tức</Link>
             {post.category && <> / <Link href={`/bai-viet?chuyen_muc=${encodeURIComponent(post.category)}`}>{post.category}</Link></>}
           </nav>
           <h1>{post.title}</h1>
@@ -42,7 +42,7 @@ export default async function PostPage({ params }) {
           <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
           <div className="article-foot">
             <p>Cần hỗ trợ về thuế – kế toán cho doanh nghiệp?</p>
-            <a className="btn btn-gold" href={telHref}><Icon name="phone" size={18} /> Gọi {site.hotline}</a>
+            <a className="btn btn-accent" href={telHref}><Icon name="phone" size={18} /> Gọi {site.hotline}</a>
           </div>
         </article>
       </section>

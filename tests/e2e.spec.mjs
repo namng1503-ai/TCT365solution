@@ -24,22 +24,35 @@ test('trang chủ: nội dung chính, địa chỉ mới, không còn ban lãnh 
   expect(errors).toEqual([]);
 });
 
-test('khách hàng: logo chạy liên tục, tạm dừng được', async ({ page }, info) => {
+test('khách hàng: logo quay 3D liên tục, kể cả khi rê chuột, không có nút dừng', async ({ page }, info) => {
   await page.goto('/');
   const logos = page.locator('.orbit-item img');
   expect(await logos.count()).toBeGreaterThanOrEqual(8);
   await page.locator('.orbit').scrollIntoViewIfNeeded();
+  await expect(page.locator('.orbit button')).toHaveCount(0);
   const ring = page.locator('.orbit-ring');
   const angle = () => ring.evaluate(el => getComputedStyle(el).getPropertyValue('--t'));
+  await page.locator('.orbit').hover();
   const a1 = await angle();
   await page.waitForTimeout(800);
-  expect(await angle()).not.toBe(a1); // đang xoay
-  await page.getByRole('button', { name: 'Tạm dừng' }).click();
-  await page.mouse.move(0, 0);
-  const p1 = await angle();
-  await page.waitForTimeout(600);
-  expect(await angle()).toBe(p1); // đã dừng
+  expect(await angle()).not.toBe(a1);
   await shot(page, 'clients', info);
+});
+
+test('tin tức: ngay sau hero, chạy liên tục, tối đa 20 bài', async ({ page }, info) => {
+  await page.goto('/');
+  const order = await page.locator('main > section').evaluateAll(els => els.map(e => e.id || e.className));
+  expect(order[1]).toBe('tin-tuc');
+  await expect(page.locator('#tin-tuc h2')).toHaveText('Tin tức');
+  const real = page.locator('.ticker li:not([aria-hidden])');
+  expect(await real.count()).toBeGreaterThan(0);
+  expect(await real.count()).toBeLessThanOrEqual(20);
+  const track = page.locator('.ticker-track');
+  const x = () => track.evaluate(el => new DOMMatrix(getComputedStyle(el).transform).m41);
+  const x1 = await x();
+  await page.waitForTimeout(700);
+  expect(await x()).toBeLessThan(x1); // chạy từ phải sang trái
+  await shot(page, 'news', info);
 });
 
 test('trang dịch vụ và bài viết mở được', async ({ page }) => {

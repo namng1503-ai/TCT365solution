@@ -20,7 +20,7 @@ export const metadata = {
   icons: { icon: '/logo.png' },
 };
 
-export const viewport = { themeColor: '#036B68' };
+export const viewport = { themeColor: '#1E40AF' };
 
 export default function RootLayout({ children }) {
   return (

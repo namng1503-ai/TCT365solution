@@ -34,7 +34,7 @@ export default function LoginPage() {
         <input id="password" name="password" type="password" autoComplete="current-password" required autoFocus />
       </div>
       {error && <p className="form-error" role="alert">{error}</p>}
-      <button className="btn btn-teal" type="submit" disabled={busy}>{busy ? 'Đang đăng nhập…' : 'Đăng nhập'}</button>
+      <button className="btn btn-primary" type="submit" disabled={busy}>{busy ? 'Đang đăng nhập…' : 'Đăng nhập'}</button>
     </form>
   );
 }

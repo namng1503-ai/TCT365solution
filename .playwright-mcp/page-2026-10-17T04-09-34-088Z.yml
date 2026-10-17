@@ -1,0 +1,342 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "TCT365 – Trang chủ" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]:
+          - strong [ref=e7]: TCT365
+          - generic [ref=e8]: Đại lý thuế · Kế toán
+      - navigation "Điều hướng chính" [ref=e9]:
+        - link "Giới thiệu" [ref=e10] [cursor=pointer]:
+          - /url: /#gioi-thieu
+        - link "Dịch vụ" [ref=e11] [cursor=pointer]:
+          - /url: /#dich-vu
+        - link "Quy trình" [ref=e12] [cursor=pointer]:
+          - /url: /#quy-trinh
+        - link "Khách hàng" [ref=e13] [cursor=pointer]:
+          - /url: /#khach-hang
+        - link "Bài viết" [ref=e14] [cursor=pointer]:
+          - /url: /bai-viet
+        - link "Liên hệ" [ref=e15] [cursor=pointer]:
+          - /url: /#lien-he
+      - link "0942 125 266" [ref=e16] [cursor=pointer]:
+        - /url: tel:0942125266
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Đại lý thuế TCT365 · Hà Nội
+        - heading "Kế toán, thuế và pháp lý doanh nghiệp — trọn gói, đúng hạn, an toàn." [level=1] [ref=e24]
+        - paragraph [ref=e25]: Chúng tôi lo sổ sách, tờ khai, quyết toán và giấy phép để bạn dành thời gian cho việc kinh doanh. Nhận chứng từ tận nơi hoặc qua Zalo, email.
+        - generic [ref=e26]:
+          - link "Gọi tư vấn 0942 125 266" [ref=e27] [cursor=pointer]:
+            - /url: tel:0942125266
+          - link "Xem các dịch vụ" [ref=e30] [cursor=pointer]:
+            - /url: "#dich-vu"
+        - list [ref=e31]:
+          - listitem [ref=e32]: Đại lý thuế được cơ quan thuế cấp phép
+          - listitem [ref=e35]: Chịu trách nhiệm với chứng từ, báo cáo do chúng tôi lập
+          - listitem [ref=e38]: Bảo mật thông tin kế toán, kể cả sau hợp đồng
+      - generic [aria-hidden] [ref=e41]:
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - strong [ref=e62]: TỜ KHAI THUẾ GTGT
+            - generic [ref=e63]: "Mẫu 01/GTGT · Kỳ: Quý III"
+          - generic [ref=e64]: "[20] Hàng hóa, dịch vụ mua vào"
+          - generic [ref=e67]: "[24] Thuế GTGT được khấu trừ"
+          - generic [ref=e70]: "[28] Hàng hóa, dịch vụ bán ra"
+          - generic [ref=e73]: "[32] Thuế GTGT phải nộp"
+          - generic [ref=e76]: ĐÃ NỘP
+        - generic [ref=e77]:
+          - generic [ref=e87]: ₫
+          - generic [ref=e88]: "365"
+        - generic [ref=e89]: 1.250.000.000
+    - generic [ref=e105]:
+      - generic [ref=e106]:
+        - heading "Về TCT365" [level=2] [ref=e107]
+        - blockquote [ref=e108]: “Thuế của bạn, kỹ năng của chúng tôi.”
+        - paragraph [ref=e109]: TCT365 là đại lý thuế được cơ quan thuế cấp phép hoạt động trong lĩnh vực kê khai và tư vấn thuế. Bên cạnh dịch vụ thuế, chúng tôi hỗ trợ doanh nghiệp và cá nhân về giấy phép kinh doanh, xây dựng hệ thống kế toán – thuế nội bộ và đào tạo nhân sự kế toán.
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - term [ref=e112]: Năm thành lập
+            - definition [ref=e113]: "[CẦN BỔ SUNG]"
+          - generic [ref=e114]:
+            - term [ref=e115]: Mã số thuế
+            - definition [ref=e116]: "[CẦN BỔ SUNG]"
+          - generic [ref=e117]:
+            - term [ref=e118]: Số khách hàng đang phục vụ
+            - definition [ref=e119]: "[CẦN BỔ SUNG]"
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - heading "Tầm nhìn" [level=3] [ref=e122]
+          - paragraph [ref=e123]: Trở thành nhà cung cấp dịch vụ thuế và đào tạo kế toán hàng đầu, giúp doanh nghiệp tiết kiệm chi phí và tuân thủ đúng pháp luật.
+        - generic [ref=e124]:
+          - heading "Sứ mệnh" [level=3] [ref=e125]
+          - paragraph [ref=e126]: Cung cấp dịch vụ tư vấn và đào tạo thuế toàn diện, giúp doanh nghiệp và cá nhân hiểu rõ nghĩa vụ thuế để ra quyết định tài chính đúng đắn.
+        - generic [ref=e127]:
+          - heading "Phương châm" [level=3] [ref=e128]
+          - paragraph [ref=e129]: An toàn – Trách nhiệm – Sẻ chia. Tư vấn chất lượng với mức phí hợp lý, bảo vệ quyền và lợi ích hợp pháp của khách hàng.
+        - generic [ref=e130]:
+          - heading "Giá trị cốt lõi" [level=3] [ref=e131]
+          - paragraph [ref=e132]:
+            - generic [ref=e133]: Tận tâm
+            - generic [ref=e134]: Chuyên nghiệp
+            - generic [ref=e135]: Thành công
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - heading "Dịch vụ" [level=2] [ref=e139]
+        - paragraph [ref=e140]: 17 nghiệp vụ trong 4 nhóm — chọn đúng việc bạn cần, hoặc để chúng tôi lo trọn gói.
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - heading "Kế toán – Thuế" [level=3] [ref=e146]
+          - paragraph [ref=e147]: Sổ sách đúng chuẩn, tờ khai đúng hạn, quyết toán an toàn.
+          - list [ref=e148]:
+            - listitem [ref=e149]:
+              - link "Dịch vụ kế toán thuế trọn gói" [ref=e150] [cursor=pointer]:
+                - /url: /dich-vu/ke-toan-thue-tron-goi
+            - listitem [ref=e154]:
+              - link "Kê khai thuế định kỳ" [ref=e155] [cursor=pointer]:
+                - /url: /dich-vu/ke-khai-thue
+            - listitem [ref=e159]:
+              - link "Thanh tra, quyết toán thuế" [ref=e160] [cursor=pointer]:
+                - /url: /dich-vu/quyet-toan-thue
+            - listitem [ref=e164]:
+              - link "Lập báo cáo tài chính" [ref=e165] [cursor=pointer]:
+                - /url: /dich-vu/lap-bao-cao-tai-chinh
+            - listitem [ref=e169]:
+              - link "Tra soát, hoàn thiện sổ sách kế toán" [ref=e170] [cursor=pointer]:
+                - /url: /dich-vu/tra-soat-so-sach-ke-toan
+            - listitem [ref=e174]:
+              - link "Hoàn thuế GTGT, TNCN" [ref=e175] [cursor=pointer]:
+                - /url: /dich-vu/hoan-thue-gtgt-tncn
+        - generic [ref=e179]:
+          - heading "Giấy phép doanh nghiệp" [level=3] [ref=e183]
+          - paragraph [ref=e184]: Thủ tục pháp lý từ lúc thành lập đến khi thay đổi, giải thể.
+          - list [ref=e185]:
+            - listitem [ref=e186]:
+              - link "Thành lập công ty" [ref=e187] [cursor=pointer]:
+                - /url: /dich-vu/thanh-lap-cong-ty
+            - listitem [ref=e191]:
+              - link "Thay đổi đăng ký kinh doanh" [ref=e192] [cursor=pointer]:
+                - /url: /dich-vu/thay-doi-dang-ky-kinh-doanh
+            - listitem [ref=e196]:
+              - link "Đăng ký hộ kinh doanh" [ref=e197] [cursor=pointer]:
+                - /url: /dich-vu/ho-kinh-doanh
+            - listitem [ref=e201]:
+              - link "Thành lập chi nhánh, văn phòng đại diện" [ref=e202] [cursor=pointer]:
+                - /url: /dich-vu/chi-nhanh-van-phong-dai-dien
+            - listitem [ref=e206]:
+              - link "Giải thể doanh nghiệp" [ref=e207] [cursor=pointer]:
+                - /url: /dich-vu/giai-the-doanh-nghiep
+        - generic [ref=e211]:
+          - heading "Đào tạo – Tư vấn" [level=3] [ref=e215]
+          - paragraph [ref=e216]: Nâng năng lực đội kế toán và kiểm soát rủi ro thuế.
+          - list [ref=e217]:
+            - listitem [ref=e218]:
+              - link "Đào tạo kế toán thuế" [ref=e219] [cursor=pointer]:
+                - /url: /dich-vu/dao-tao-ke-toan-thue
+            - listitem [ref=e223]:
+              - link "Đào tạo kế toán tổng hợp" [ref=e224] [cursor=pointer]:
+                - /url: /dich-vu/dao-tao-ke-toan-tong-hop
+            - listitem [ref=e228]:
+              - link "Xây dựng, vận hành hệ thống kế toán – thuế" [ref=e229] [cursor=pointer]:
+                - /url: /dich-vu/he-thong-ke-toan-quan-tri
+            - listitem [ref=e233]:
+              - link "Tư vấn rủi ro kế toán thuế, pháp lý" [ref=e234] [cursor=pointer]:
+                - /url: /dich-vu/tu-van-rui-ro-thue
+        - generic [ref=e238]:
+          - heading "Dịch vụ khác" [level=3] [ref=e242]
+          - paragraph [ref=e243]: Hóa đơn điện tử, chữ ký số và bảo hiểm xã hội.
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Hóa đơn điện tử, chữ ký số" [ref=e246] [cursor=pointer]:
+                - /url: /dich-vu/hoa-don-dien-tu-chu-ky-so
+            - listitem [ref=e250]:
+              - link "Bảo hiểm xã hội cho doanh nghiệp" [ref=e251] [cursor=pointer]:
+                - /url: /dich-vu/bao-hiem-xa-hoi
+    - generic [ref=e256]:
+      - generic [ref=e257]:
+        - heading "Quy trình làm việc" [level=2] [ref=e258]
+        - paragraph [ref=e259]: Năm bước rõ ràng, bạn luôn biết hồ sơ của mình đang ở đâu.
+      - list [ref=e260]:
+        - listitem [ref=e261]:
+          - generic [ref=e262]: "1"
+          - heading "Tiếp nhận nhu cầu" [level=3] [ref=e263]
+          - paragraph [ref=e264]: Trao đổi qua hotline, Zalo, email hoặc tại văn phòng để nắm rõ tình hình doanh nghiệp.
+        - listitem [ref=e265]:
+          - generic [ref=e266]: "2"
+          - heading "Tư vấn phương án" [level=3] [ref=e267]
+          - paragraph [ref=e268]: Đề xuất phương án phù hợp, nêu rõ hồ sơ cần chuẩn bị, thời gian và chi phí.
+        - listitem [ref=e269]:
+          - generic [ref=e270]: "3"
+          - heading "Ủy quyền thực hiện" [level=3] [ref=e271]
+          - paragraph [ref=e272]: TCT365 chuẩn bị, soạn thảo và nộp hồ sơ thay doanh nghiệp theo ủy quyền.
+        - listitem [ref=e273]:
+          - generic [ref=e274]: "4"
+          - heading "Theo dõi và cập nhật" [level=3] [ref=e275]
+          - paragraph [ref=e276]: Cập nhật tình trạng hồ sơ cho khách hàng trong suốt quá trình xử lý.
+        - listitem [ref=e277]:
+          - generic [ref=e278]: "5"
+          - heading "Bàn giao kết quả" [level=3] [ref=e279]
+          - paragraph [ref=e280]: Bàn giao kết quả, hồ sơ gốc và hỗ trợ các thủ tục tiếp theo.
+    - generic [ref=e282]:
+      - generic [ref=e283]:
+        - heading "Khách hàng đồng hành" [level=2] [ref=e284]
+        - paragraph [ref=e285]: TCT365 hướng tới sự thành công cùng khách hàng. Một số doanh nghiệp đã tin tưởng sử dụng dịch vụ của chúng tôi.
+      - generic [ref=e286]:
+        - generic [ref=e287]:
+          - generic:
+            - figure [ref=e288]:
+              - img "Logo khách hàng duc minh"
+            - figure [ref=e289]:
+              - img "Logo khách hàng ehle"
+            - figure [ref=e290]:
+              - img "Logo khách hàng j market"
+            - figure [ref=e291]:
+              - img "Logo khách hàng lanh viet thang"
+            - figure [ref=e292]:
+              - img "Logo khách hàng lb"
+            - figure [ref=e293]:
+              - img "Logo khách hàng legal"
+            - figure [ref=e294]:
+              - img "Logo khách hàng sabifa"
+            - figure [ref=e295]:
+              - img "Logo khách hàng tnc"
+        - button "Tạm dừng" [ref=e297] [cursor=pointer]
+    - generic [ref=e301]:
+      - generic [ref=e302]:
+        - generic [ref=e303]:
+          - heading "Kiến thức kế toán – tài chính" [level=2] [ref=e304]
+          - paragraph [ref=e305]: Hướng dẫn, cập nhật chính sách thuế và kinh nghiệm thực tế từ đội ngũ TCT365.
+        - link "Tất cả bài viết" [ref=e306] [cursor=pointer]:
+          - /url: /bai-viet
+      - generic [ref=e307]:
+        - article [ref=e308]:
+          - link "Doanh nghiệp 17/10/2026 8 việc cần làm ngay sau khi thành lập doanh nghiệp Có giấy chứng nhận đăng ký doanh nghiệp mới là bước đầu. Đây là danh sách việc cần hoàn tất để doanh nghiệp hoạt động hợp lệ và xuất được hóa đơn." [ref=e309] [cursor=pointer]:
+            - /url: /bai-viet/viec-can-lam-sau-khi-thanh-lap-doanh-nghiep
+            - generic [ref=e314]:
+              - paragraph [ref=e315]:
+                - generic [ref=e316]: Doanh nghiệp
+                - time [ref=e317]: 17/10/2026
+              - heading "8 việc cần làm ngay sau khi thành lập doanh nghiệp" [level=3] [ref=e318]
+              - paragraph [ref=e319]: Có giấy chứng nhận đăng ký doanh nghiệp mới là bước đầu. Đây là danh sách việc cần hoàn tất để doanh nghiệp hoạt động hợp lệ và xuất được hóa đơn.
+        - article [ref=e320]:
+          - link "Kế toán 10/10/2026 Doanh nghiệp cần gửi kế toán những chứng từ gì mỗi tháng? Một bộ chứng từ đầy đủ, gửi đúng hẹn giúp tờ khai chính xác và giảm rủi ro khi quyết toán. Danh sách dưới đây áp dụng cho phần lớn doanh nghiệp vừa và nhỏ." [ref=e321] [cursor=pointer]:
+            - /url: /bai-viet/chuan-bi-chung-tu-gui-ke-toan-hang-thang
+            - generic [ref=e326]:
+              - paragraph [ref=e327]:
+                - generic [ref=e328]: Kế toán
+                - time [ref=e329]: 10/10/2026
+              - heading "Doanh nghiệp cần gửi kế toán những chứng từ gì mỗi tháng?" [level=3] [ref=e330]
+              - paragraph [ref=e331]: Một bộ chứng từ đầy đủ, gửi đúng hẹn giúp tờ khai chính xác và giảm rủi ro khi quyết toán. Danh sách dưới đây áp dụng cho phần lớn doanh nghiệp vừa và nhỏ.
+    - generic [ref=e333]:
+      - generic [ref=e334]:
+        - heading "Liên hệ" [level=2] [ref=e335]
+        - paragraph [ref=e336]: Gọi hoặc nhắn tin để được tư vấn thủ tục ban đầu về thuế, kế toán.
+        - list [ref=e337]:
+          - listitem [ref=e338]:
+            - generic [ref=e341]:
+              - strong [ref=e342]: Văn phòng
+              - link "432 Phạm Văn Đồng, Phường Đông Ngạc, TP Hà Nội" [ref=e343] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/?api=1&query=432%20Ph%E1%BA%A1m%20V%C4%83n%20%C4%90%E1%BB%93ng%2C%20Ph%C6%B0%E1%BB%9Dng%20%C4%90%C3%B4ng%20Ng%E1%BA%A1c%2C%20TP%20H%C3%A0%20N%E1%BB%99i
+          - listitem [ref=e344]:
+            - generic [ref=e347]:
+              - strong [ref=e348]: Hotline (Ms. Đào)
+              - link "0942 125 266" [ref=e349] [cursor=pointer]:
+                - /url: tel:0942125266
+          - listitem [ref=e350]:
+            - generic [ref=e353]:
+              - strong [ref=e354]: Email
+              - link "support@tct365-tax.com" [ref=e355] [cursor=pointer]:
+                - /url: mailto:support@tct365-tax.com
+          - listitem [ref=e356]:
+            - generic [ref=e359]:
+              - strong [ref=e360]: Zalo / Facebook
+              - generic [ref=e361]:
+                - link "Zalo" [ref=e362] [cursor=pointer]:
+                  - /url: https://zalo.me/0942125266
+                - text: ·
+                - link "facebook.com/TCT365" [ref=e363] [cursor=pointer]:
+                  - /url: https://www.facebook.com/TCT365
+        - generic [ref=e364]:
+          - link "Gọi ngay" [ref=e365] [cursor=pointer]:
+            - /url: tel:0942125266
+          - link "Nhắn Zalo" [ref=e368] [cursor=pointer]:
+            - /url: https://zalo.me/0942125266
+      - iframe [ref=e372]
+  - contentinfo [ref=e373]:
+    - generic [ref=e374]:
+      - generic [ref=e375]:
+        - paragraph [ref=e376]: Công ty TNHH TCT365
+        - paragraph [ref=e377]: Thuế của bạn, kỹ năng của chúng tôi.
+        - paragraph [ref=e378]: "Địa chỉ: 432 Phạm Văn Đồng, Phường Đông Ngạc, TP Hà Nội"
+        - paragraph [ref=e379]:
+          - text: "Hotline:"
+          - link "0942 125 266" [ref=e380] [cursor=pointer]:
+            - /url: tel:0942125266
+          - text: (Ms. Đào)
+        - paragraph [ref=e381]:
+          - text: "Email:"
+          - link "support@tct365-tax.com" [ref=e382] [cursor=pointer]:
+            - /url: mailto:support@tct365-tax.com
+        - paragraph [ref=e383]: "Mã số thuế: [CẦN BỔ SUNG]"
+      - generic [ref=e384]:
+        - paragraph [ref=e385]: Kế toán – Thuế
+        - list [ref=e386]:
+          - listitem [ref=e387]:
+            - link "Dịch vụ kế toán thuế trọn gói" [ref=e388] [cursor=pointer]:
+              - /url: /dich-vu/ke-toan-thue-tron-goi
+          - listitem [ref=e389]:
+            - link "Kê khai thuế định kỳ" [ref=e390] [cursor=pointer]:
+              - /url: /dich-vu/ke-khai-thue
+          - listitem [ref=e391]:
+            - link "Thanh tra, quyết toán thuế" [ref=e392] [cursor=pointer]:
+              - /url: /dich-vu/quyet-toan-thue
+          - listitem [ref=e393]:
+            - link "Lập báo cáo tài chính" [ref=e394] [cursor=pointer]:
+              - /url: /dich-vu/lap-bao-cao-tai-chinh
+          - listitem [ref=e395]:
+            - link "Tra soát, hoàn thiện sổ sách kế toán" [ref=e396] [cursor=pointer]:
+              - /url: /dich-vu/tra-soat-so-sach-ke-toan
+          - listitem [ref=e397]:
+            - link "Hoàn thuế GTGT, TNCN" [ref=e398] [cursor=pointer]:
+              - /url: /dich-vu/hoan-thue-gtgt-tncn
+      - generic [ref=e399]:
+        - paragraph [ref=e400]: Giấy phép doanh nghiệp
+        - list [ref=e401]:
+          - listitem [ref=e402]:
+            - link "Thành lập công ty" [ref=e403] [cursor=pointer]:
+              - /url: /dich-vu/thanh-lap-cong-ty
+          - listitem [ref=e404]:
+            - link "Thay đổi đăng ký kinh doanh" [ref=e405] [cursor=pointer]:
+              - /url: /dich-vu/thay-doi-dang-ky-kinh-doanh
+          - listitem [ref=e406]:
+            - link "Đăng ký hộ kinh doanh" [ref=e407] [cursor=pointer]:
+              - /url: /dich-vu/ho-kinh-doanh
+          - listitem [ref=e408]:
+            - link "Thành lập chi nhánh, văn phòng đại diện" [ref=e409] [cursor=pointer]:
+              - /url: /dich-vu/chi-nhanh-van-phong-dai-dien
+          - listitem [ref=e410]:
+            - link "Giải thể doanh nghiệp" [ref=e411] [cursor=pointer]:
+              - /url: /dich-vu/giai-the-doanh-nghiep
+      - generic [ref=e412]:
+        - paragraph [ref=e413]: Kết nối
+        - list [ref=e414]:
+          - listitem [ref=e415]:
+            - link "Zalo" [ref=e416] [cursor=pointer]:
+              - /url: https://zalo.me/0942125266
+          - listitem [ref=e417]:
+            - link "Facebook" [ref=e418] [cursor=pointer]:
+              - /url: https://www.facebook.com/TCT365
+          - listitem [ref=e419]:
+            - link "Bài viết chuyên môn" [ref=e420] [cursor=pointer]:
+              - /url: /bai-viet
+    - generic [ref=e421]: © 2026 Công ty TNHH TCT365. Bảo lưu mọi quyền.
+  - generic [ref=e422]:
+    - link "Nhắn Zalo cho TCT365" [ref=e423] [cursor=pointer]:
+      - /url: https://zalo.me/0942125266
+      - text: Zalo
+    - link "Gọi hotline 0942 125 266" [ref=e424] [cursor=pointer]:
+      - /url: tel:0942125266
+  - alert [ref=e427]

@@ -2,3 +2,6 @@
 - hero-thue.webp: https://images.unsplash.com/photo-1554224155-6726b3ff858f
 - ky-ho-so.webp:  https://images.unsplash.com/photo-1450101499163-c8848c66ca85
 Icon: Lucide (https://lucide.dev), giấy phép ISC — nhúng trong components/Icons.js.
+Ảnh minh hoạ bài Tin tức (public/images/tin-tuc/), cùng giấy phép Unsplash:
+- hoa-don-chung-tu.webp: https://images.unsplash.com/photo-1554224154-26032ffc0d07
+- tien-xu-mam-cay.webp: https://images.unsplash.com/photo-1579621970563-ebec7560ff3e

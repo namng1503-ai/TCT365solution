@@ -4,7 +4,7 @@ export default function ClientRing({ logos }) {
   const n = logos.length;
   if (!n) return null;
   return (
-    <div className="orbit">
+    <div className="orbit" style={{ '--n': n }}>
       <div className="orbit-stage">
         <div className="orbit-ring">
           {logos.map((l, i) => (

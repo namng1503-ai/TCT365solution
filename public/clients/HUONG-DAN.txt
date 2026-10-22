@@ -5,7 +5,7 @@ Mọi file ảnh trong thư mục này (public/clients/) tự động xuất hi�
 
 Thêm khách hàng:
   1. Chép file logo vào đây. Định dạng: .png .jpg .jpeg .webp .svg .gif .avif
-  2. Đặt tên file theo tên khách hàng, ví dụ: cong-ty-abc.png  (tên này dùng làm mô tả ảnh)
+  2. Đặt tên file theo tên khách hàng, ví dụ: KH044_cong-ty-abc.webp (số KH quyết định thứ tự, phần sau dùng làm mô tả ảnh)
   3. Nên cắt sát viền logo, nền trắng hoặc trong suốt, rộng 300–600px.
   4. Đẩy lên GitHub:
        git add public/clients

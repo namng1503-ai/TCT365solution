@@ -266,24 +266,32 @@ p { margin: 0 0 1em; }
 /* ───────── Khách hàng: quỹ đạo 3D quay liên tục */
 @property --t { syntax: '<angle>'; inherits: true; initial-value: 0deg; }
 .section-clients { padding: 40px 0; background: linear-gradient(180deg, var(--sky), var(--white)); border-top: 1px solid var(--line); }
-.clients-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: center; }
-.clients-grid p { color: var(--muted); font-size: 17px; max-width: 46ch; margin: 0; }
-.orbit-stage { position: relative; width: 100%; height: 280px; perspective: 1100px; perspective-origin: 50% 20%; display: grid; place-items: center; }
+.clients-grid { display: grid; gap: 8px; justify-items: center; text-align: center; }
+.clients-grid p { color: var(--muted); font-size: 17px; max-width: 60ch; margin: 0; }
+/* Vòng rộng hơn khung → chỉ thấy cung phía trước, hai mép mờ dần. */
+.orbit {
+  --r: clamp(320px, 44vw, 600px); --tilt: 13deg; --w: 150px; --h: 90px;
+  width: 100%; overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.orbit-stage { position: relative; width: 100%; height: 470px; perspective: calc(var(--r) * 4); perspective-origin: 50% 20%; display: grid; place-items: center; }
 .orbit-ring {
-  --r: clamp(120px, 18vw, 220px); --tilt: 16deg;
   position: relative; width: 0; height: 0; transform-style: preserve-3d;
-  transform: rotateX(calc(var(--tilt) * -1));
-  animation: orbit 32s linear infinite;
+  transform: translateY(-70px) rotateX(calc(var(--tilt) * -1));
+  animation: orbit calc(var(--n, 20) * 2.2s) linear infinite; /* ~2,2 giây mỗi logo đi qua giữa */
 }
 .orbit-item {
   --ang: calc(var(--a) + var(--t));
-  position: absolute; left: -56px; top: -35px; width: 112px; height: 70px; margin: 0;
-  display: grid; place-items: center; padding: 8px; border-radius: 14px; background: var(--white);
+  /* --pop: 1 khi logo ở chính giữa phía trước, giảm êm về 0 (logo kế bên ≈ .25). Hàm liên tục theo góc → không giật. */
+  --pop: pow(max(0, cos(var(--ang))), calc(var(--n, 20) * var(--n, 20) * .07));
+  position: absolute; left: calc(var(--w) / -2); top: calc(var(--h) / -2); width: var(--w); height: var(--h); margin: 0;
+  display: grid; place-items: center; padding: 12px; border-radius: 16px; background: var(--white);
   border: 1px solid var(--line); box-shadow: 0 14px 26px -14px rgb(15 30 74 / .45);
-  transform: rotateY(var(--ang)) translateZ(var(--r)) rotateY(calc(var(--ang) * -1)) rotateX(var(--tilt));
-  opacity: calc(.45 + .55 * (cos(var(--ang)) + 1) / 2);
+  /* Kích thước gốc = lúc to nhất, chỉ thu nhỏ → logo ở giữa luôn nét. */
+  transform: rotateY(var(--ang)) translateZ(var(--r)) rotateY(calc(var(--ang) * -1)) rotateX(var(--tilt)) scale(calc(.5 + .5 * var(--pop)));
+  opacity: calc(.3 + .7 * (cos(var(--ang)) + 1) / 2);
 }
-.orbit-item img { max-height: 52px; width: auto; object-fit: contain; }
+.orbit-item img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; }
 .orbit-core { position: absolute; width: 100px; height: 100px; border-radius: 50%; background: var(--white); display: grid; place-items: center; padding: 14px; box-shadow: 0 0 0 10px rgb(30 64 175 / .06), 0 12px 40px rgb(30 64 175 / .2); }
 .orbit-core img { width: 100%; }
 .orbit-ring::after {
@@ -430,12 +438,11 @@ body:has(.admin) .float-contact { display: none; }
   .steps { grid-template-columns: 1fr; }
   .scene { height: 340px; transform: scale(.62); margin: -20px -60px -120px; }
   .ticker { --per: 1.6; }
-  .orbit-stage { height: 260px; }
-  .orbit-ring { --r: 118px; --tilt: 30deg; }
-  .orbit-item { width: 84px; height: 54px; left: -42px; top: -27px; padding: 6px; border-radius: 12px; }
-  .orbit-item img { max-height: 40px; }
+  .orbit { --r: 480px; --w: 116px; --h: 70px; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .orbit-stage { height: 330px; }
+  .orbit-ring { transform: translateY(-50px) rotateX(calc(var(--tilt) * -1)); }
+  .orbit-item { padding: 9px; border-radius: 12px; }
   .orbit-core { width: 72px; height: 72px; padding: 10px; }
-  .orbit-ring::after { display: none; }
   .hero-cta .btn { flex: 1 1 100%; }
   .block { padding: 20px; }
   .admin-table th:nth-child(2), .admin-table td:nth-child(2) { display: none; }

@@ -5,3 +5,4 @@ Icon: Lucide (https://lucide.dev), giấy phép ISC — nhúng trong components/
 Ảnh minh hoạ bài Tin tức (public/images/tin-tuc/), cùng giấy phép Unsplash:
 - hoa-don-chung-tu.webp: https://images.unsplash.com/photo-1554224154-26032ffc0d07
 - tien-xu-mam-cay.webp: https://images.unsplash.com/photo-1579621970563-ebec7560ff3e
+- du-thao-luat-dnnvv-chon-cach-tinh-thue-doanh-thu-10-ty.webp: TCT365 tự thiết kế bằng scripts/tao-anh-bia.py (không dùng ảnh bên thứ ba)

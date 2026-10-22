@@ -26,7 +26,7 @@ data/services.js        4 nhóm + 17 dịch vụ (nội dung trang dịch vụ)
 lib/posts.js            Đọc/ghi bài viết + upload ảnh (Vercel Blob hoặc file local)
 lib/auth.js, token.js   Xác thực admin: cookie `tct_admin` = `exp.HMAC(exp, ADMIN_PASSWORD)`, hạn 7 ngày
 lib/frontmatter.js      Frontmatter tối giản, giá trị là JSON string (title, date, time?, category, excerpt, cover)
-lib/rss.js, app/rss.xml/ Nguồn RSS /rss.xml — Make.com đọc để tự đăng bài mới lên fanpage (docs/tin-tuc/DANG-FANPAGE.md)
+lib/rss.js, app/rss.xml/ Nguồn RSS /rss.xml — Zapier đọc để tự đăng bài mới lên fanpage (docs/tin-tuc/DANG-FANPAGE.md)
 lib/clients.js          Đọc logo khách hàng từ public/clients/
 content/posts/*.md      Bài mẫu đi kèm repo
 public/clients/         Logo khách hàng — thêm file ảnh là tự vào vòng quay (xem HUONG-DAN.txt)

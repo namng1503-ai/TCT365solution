@@ -102,4 +102,4 @@ git commit -m "Tin tức dd/mm/yyyy: <tiêu đề ngắn 1>; <tiêu đề ngắn
 git push origin main
 ```
 
-Trước khi commit: sửa `date` thành ngày duyệt và `time` thành giờ hiện tại (giờ Việt Nam). Hai bài cùng lượt đặt cách nhau 1 phút (ví dụ 08:30 và 08:31) để nguồn RSS phân biệt được. Make.com đọc https://tct365.vercel.app/rss.xml và tự đăng bài mới lên fanpage (xem DANG-FANPAGE.md), nên không cần đăng tay. Vercel tự triển khai sau khi push; báo lại anh Nam link 2 bài: `https://tct365.vercel.app/bai-viet/<slug>`.
+Trước khi commit: sửa `date` thành ngày duyệt và `time` thành giờ hiện tại (giờ Việt Nam). Hai bài cùng lượt đặt cách nhau 1 phút (ví dụ 08:30 và 08:31) để nguồn RSS phân biệt được. Zapier đọc https://tct365.vercel.app/rss.xml và tự đăng bài mới lên fanpage (xem DANG-FANPAGE.md), nên không cần đăng tay. Vercel tự triển khai sau khi push; báo lại anh Nam link 2 bài: `https://tct365.vercel.app/bai-viet/<slug>`.

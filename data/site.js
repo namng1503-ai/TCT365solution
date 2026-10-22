@@ -57,4 +57,8 @@ export const processSteps = [
   { title: 'Bàn giao kết quả', text: 'Bàn giao kết quả, hồ sơ gốc và hỗ trợ các thủ tục tiếp theo.' },
 ];
 
-export const postCategories = ['Thuế', 'Kế toán', 'Tài chính', 'Doanh nghiệp', 'Bảo hiểm'];
+// Bài thuộc chuyên mục này hiện ở /tuyen-dung, không lẫn vào Tin tức.
+export const jobCategory = 'Tuyển dụng';
+export const newsCategories = ['Thuế', 'Kế toán', 'Tài chính', 'Doanh nghiệp', 'Bảo hiểm'];
+export const postCategories = [...newsCategories, jobCategory];
+export const isJob = p => p.category === jobCategory;

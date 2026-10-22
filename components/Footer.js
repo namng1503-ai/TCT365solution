@@ -26,6 +26,7 @@ export default function Footer() {
             <li><a href={site.zalo} target="_blank" rel="noopener noreferrer">Zalo</a></li>
             <li><a href={site.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><Link href="/bai-viet">Tin tức</Link></li>
+            <li><Link href="/tuyen-dung">Tuyển dụng</Link></li>
           </ul>
         </div>
       </div>

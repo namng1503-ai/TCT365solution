@@ -5,7 +5,7 @@ import Hero3D from '@/components/Hero3D';
 import ClientRing from '@/components/ClientRing';
 import TiltCard from '@/components/TiltCard';
 import NewsTicker from '@/components/NewsTicker';
-import { site, about, processSteps, telHref, mapEmbed, mapLink } from '@/data/site';
+import { site, about, processSteps, telHref, mapEmbed, mapLink, isJob } from '@/data/site';
 import { groups, services, servicesByGroup } from '@/data/services';
 import { getClientLogos } from '@/lib/clients';
 import { getPosts } from '@/lib/posts';
@@ -18,7 +18,7 @@ const isPending = v => String(v).includes('CẦN BỔ SUNG');
 
 export default async function Home() {
   const logos = getClientLogos();
-  const news = (await getPosts().catch(() => [])).slice(0, NEWS_LIMIT);
+  const news = (await getPosts().catch(() => [])).filter(p => !isJob(p)).slice(0, NEWS_LIMIT);
 
   return (
     <>

@@ -16,6 +16,7 @@ app/                    Trang (App Router)
   page.js               Trang chủ: hero 3D → Tin tức (dải chạy, 20 bài mới nhất) → giới thiệu → dịch vụ → quy trình → khách hàng → liên hệ (ISR 60s)
   dich-vu/[slug]/       Chi tiết dịch vụ (SSG từ data/services.js)
   bai-viet/             Danh sách + chi tiết bài (dynamic, đọc từ lib/posts)
+  tuyen-dung/           Bài chuyên mục "Tuyển dụng" (tách khỏi Tin tức qua isJob trong data/site.js)
   admin/                Đăng nhập, danh sách bài, trình soạn Markdown
   api/                  login, logout, posts (POST), posts/[slug] (PUT, DELETE), upload
   uploads/[name]/       Phục vụ ảnh upload khi chạy local

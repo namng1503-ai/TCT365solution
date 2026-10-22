@@ -9,6 +9,7 @@ export default async function sitemap() {
   return [
     { url: site.url, priority: 1 },
     { url: `${site.url}/bai-viet` },
+    { url: `${site.url}/tuyen-dung` },
     ...services.map(s => ({ url: `${site.url}/dich-vu/${s.slug}` })),
     ...posts.map(p => ({ url: `${site.url}/bai-viet/${p.slug}`, lastModified: p.date || undefined })),
   ];

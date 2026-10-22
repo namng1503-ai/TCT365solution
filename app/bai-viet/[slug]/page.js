@@ -4,7 +4,7 @@ import { marked } from 'marked';
 import Icon from '@/components/Icons';
 import { formatDate } from '@/components/PostCard';
 import { getPost } from '@/lib/posts';
-import { site, telHref } from '@/data/site';
+import { site, telHref, isJob } from '@/data/site';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,8 +24,8 @@ export default async function PostPage({ params }) {
       <section className="page-hero">
         <div className="wrap article">
           <nav className="crumbs" aria-label="Đường dẫn">
-            <Link href="/">Trang chủ</Link> / <Link href="/bai-viet">Tin tức</Link>
-            {post.category && <> / <Link href={`/bai-viet?chuyen_muc=${encodeURIComponent(post.category)}`}>{post.category}</Link></>}
+            <Link href="/">Trang chủ</Link> / {isJob(post) ? <Link href="/tuyen-dung">Tuyển dụng</Link> : <Link href="/bai-viet">Tin tức</Link>}
+            {post.category && !isJob(post) && <> / <Link href={`/bai-viet?chuyen_muc=${encodeURIComponent(post.category)}`}>{post.category}</Link></>}
           </nav>
           <h1>{post.title}</h1>
           <p><time dateTime={post.date}>{formatDate(post.date)}</time></p>

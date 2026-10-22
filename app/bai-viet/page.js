@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import PostCard from '@/components/PostCard';
 import { getPosts } from '@/lib/posts';
-import { postCategories } from '@/data/site';
+import { newsCategories, isJob } from '@/data/site';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Tin tức kế toán – thuế – tài chính', description: 'Hướng dẫn, cập nhật chính sách thuế, kế toán và tài chính doanh nghiệp từ TCT365.' };
 
 export default async function PostsPage({ searchParams }) {
   const cat = (await searchParams).chuyen_muc;
-  const all = await getPosts();
+  const all = (await getPosts()).filter(p => !isJob(p));
   const posts = cat ? all.filter(p => p.category === cat) : all;
-  const cats = [...new Set([...postCategories, ...all.map(p => p.category).filter(Boolean)])];
+  const cats = [...new Set([...newsCategories, ...all.map(p => p.category).filter(Boolean)])];
 
   return (
     <>

@@ -9,6 +9,7 @@ const nav = [
   ['/#quy-trinh', 'Quy trình'],
   ['/#khach-hang', 'Khách hàng'],
   ['/bai-viet', 'Tin tức'],
+  ['/tuyen-dung', 'Tuyển dụng'],
   ['/#lien-he', 'Liên hệ'],
 ];
 

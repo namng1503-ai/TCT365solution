@@ -18,6 +18,7 @@ export const metadata = {
   description: site.description,
   openGraph: { siteName: site.name, locale: 'vi_VN', type: 'website', images: ['/logo.png'] },
   icons: { icon: '/logo.png' },
+  alternates: { types: { 'application/rss+xml': [{ url: '/rss.xml', title: `Tin tức ${site.shortName}` }] } },
 };
 
 export const viewport = { themeColor: '#1E40AF' };

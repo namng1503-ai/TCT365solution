@@ -26,6 +26,7 @@ Tài liệu này là "luật" cho mỗi lần Claude tự viết bài lúc sáng
 ---
 title: "Tiêu đề ngắn gọn, nêu đúng sự kiện (≤ 100 ký tự)"
 date: "YYYY-MM-DD"            ← ngày đăng = ngày commit
+time: "HH:MM"                 ← giờ đăng (giờ Việt Nam) = lúc commit; mỗi bài một giờ khác nhau
 category: "Thuế"              ← chỉ dùng: Thuế | Kế toán | Tài chính | Doanh nghiệp | Bảo hiểm
 excerpt: "Sapo 2–3 câu tóm tắt ý chính."
 cover: "/images/tin-tuc/<slug>.webp"
@@ -101,4 +102,4 @@ git commit -m "Tin tức dd/mm/yyyy: <tiêu đề ngắn 1>; <tiêu đề ngắn
 git push origin main
 ```
 
-Nếu ngày duyệt khác ngày viết, sửa `date` thành ngày duyệt trước khi commit. Vercel tự triển khai sau khi push; báo lại anh Nam link 2 bài: `https://tct365.vercel.app/bai-viet/<slug>`.
+Trước khi commit: sửa `date` thành ngày duyệt và `time` thành giờ hiện tại (giờ Việt Nam). Hai bài cùng lượt đặt cách nhau 1 phút (ví dụ 08:30 và 08:31) để nguồn RSS phân biệt được. Make.com đọc https://tct365.vercel.app/rss.xml và tự đăng bài mới lên fanpage (xem DANG-FANPAGE.md), nên không cần đăng tay. Vercel tự triển khai sau khi push; báo lại anh Nam link 2 bài: `https://tct365.vercel.app/bai-viet/<slug>`.

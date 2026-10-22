@@ -6,7 +6,9 @@ export const site = {
   tagline: 'Đại lý thuế · Kế toán · Tư vấn doanh nghiệp',
   description:
     'TCT365 là đại lý thuế cung cấp dịch vụ kế toán thuế trọn gói, kê khai và quyết toán thuế, lập báo cáo tài chính, cấp giấy phép doanh nghiệp và đào tạo kế toán.',
-  url: 'https://tct365-tax.com',
+  // Địa chỉ website đang chạy. Dùng cho ảnh xem trước khi chia sẻ link (Facebook, Zalo), sitemap và RSS.
+  // Khi tên miền tct365-tax.com được trỏ về Vercel thì đổi lại thành 'https://tct365-tax.com'.
+  url: 'https://tct365.vercel.app',
   address: '432 Phạm Văn Đồng, Phường Đông Ngạc, TP Hà Nội',
   hotline: '0942 125 266',
   hotlineContact: 'Ms. Đào',

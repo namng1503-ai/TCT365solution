@@ -25,7 +25,8 @@ data/site.js            Thông tin công ty, giới thiệu, quy trình, chuyên
 data/services.js        4 nhóm + 17 dịch vụ (nội dung trang dịch vụ)
 lib/posts.js            Đọc/ghi bài viết + upload ảnh (Vercel Blob hoặc file local)
 lib/auth.js, token.js   Xác thực admin: cookie `tct_admin` = `exp.HMAC(exp, ADMIN_PASSWORD)`, hạn 7 ngày
-lib/frontmatter.js      Frontmatter tối giản, giá trị là JSON string
+lib/frontmatter.js      Frontmatter tối giản, giá trị là JSON string (title, date, time?, category, excerpt, cover)
+lib/rss.js, app/rss.xml/ Nguồn RSS /rss.xml — Make.com đọc để tự đăng bài mới lên fanpage (docs/tin-tuc/DANG-FANPAGE.md)
 lib/clients.js          Đọc logo khách hàng từ public/clients/
 content/posts/*.md      Bài mẫu đi kèm repo
 public/clients/         Logo khách hàng — thêm file ảnh là tự vào vòng quay (xem HUONG-DAN.txt)
@@ -51,6 +52,9 @@ public/images/          Ảnh nền Unsplash (nguồn trong NGUON-ANH.txt)
 - Không có token → ghi `content/posts/` và `content/uploads/` (chỉ dùng local). Trên Vercel thiếu Blob → API trả lỗi hướng dẫn kết nối Blob.
 - Bài trong Blob trùng slug ghi đè bài repo.
 - Markdown render bằng `marked` **không sanitize** vì chỉ admin viết. Nếu mở cho nhiều người viết → thêm sanitize.
+
+## Địa chỉ website
+- `site.url` trong `data/site.js` = `https://tct365.vercel.app` vì tên miền tct365-tax.com vẫn trỏ về WordPress cũ. Nó quyết định ảnh xem trước khi chia sẻ link (og:image), sitemap và RSS. Khi tên miền trỏ về Vercel thì đổi lại.
 
 ## Vercel
 - `outputFileTracingIncludes` trong `next.config.mjs` đóng gói `public/clients` và `content/posts` vào serverless function — bắt buộc vì trang chủ ISR đọc chúng lúc runtime.

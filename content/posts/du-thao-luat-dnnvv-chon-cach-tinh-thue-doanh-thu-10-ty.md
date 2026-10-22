@@ -1,6 +1,7 @@
 ---
 title: "Dự thảo Luật Phát triển DNNVV: doanh thu đến 10 tỷ đồng được chọn cách tính thuế"
 date: "2026-10-22"
+time: "22:25"
 category: "Doanh nghiệp"
 excerpt: "Chính phủ đề xuất cho doanh nghiệp và cá nhân kinh doanh có doanh thu năm không quá 10 tỷ đồng tự chọn tính thuế theo thu nhập hoặc theo doanh thu. Thời điểm áp dụng là điểm còn nhiều ý kiến khác nhau."
 cover: "/images/tin-tuc/du-thao-luat-dnnvv-chon-cach-tinh-thue-doanh-thu-10-ty.webp"

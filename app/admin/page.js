@@ -35,7 +35,9 @@ export default async function AdminHome() {
         </div>
         <div className="actions">
           <Link className="btn btn-accent" href="/admin/editor">Viết bài mới</Link>
+          <Link className="btn btn-primary" href="/admin/editor?loai=tuyen-dung">Đăng tin tuyển dụng</Link>
           <Link className="btn btn-ghost" href="/bai-viet" target="_blank">Xem trang tin tức</Link>
+          <Link className="btn btn-ghost" href="/tuyen-dung" target="_blank">Xem trang tuyển dụng</Link>
           <LogoutButton />
         </div>
       </div>

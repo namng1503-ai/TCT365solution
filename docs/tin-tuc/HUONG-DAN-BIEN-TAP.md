@@ -75,7 +75,12 @@ pip install pillow --break-system-packages   # nếu thiếu
 python3 scripts/tao-anh-bia.py --slug <slug> --category "<Chuyên mục>" --motif <motif> --label "<dòng chữ ngắn ≤ 50 ký tự>"
 ```
 
-Motif: `hoa-don` (hóa đơn), `kinh-lup` (điều tra, rà soát), `cua-hang` (hộ kinh doanh, DN nhỏ), `bieu-do` (tài chính, tăng trưởng), `so-sach` (kế toán), `khien` (bảo hiểm, an toàn), `can-can` (pháp luật, xét xử). Mở ảnh ra xem trước khi gửi duyệt. Khi đăng, thêm một dòng ghi nguồn ảnh vào `public/images/NGUON-ANH.txt`.
+Motif: `hoa-don` (hóa đơn), `kinh-lup` (điều tra, rà soát), `cua-hang` (hộ kinh doanh, DN nhỏ), `bieu-do` (tài chính, tăng trưởng), `so-sach` (kế toán), `khien` (bảo hiểm, an toàn), `can-can` (pháp luật, xét xử), `doanh-thu` (rà soát doanh thu, kê khai thiếu), `giai-the` (thủ tục hành chính, hồ sơ, giải thể). Mở ảnh ra xem trước khi gửi duyệt.
+
+Yêu cầu của anh Nam về ảnh bìa:
+- **Tông sáng, nền trắng chủ đạo, trông chuyên nghiệp.** Script mặc định `--theme sang`. Không dùng `--theme toi` (nền xanh đậm cũ).
+- **Không trùng hình với các bài trước.** Trước khi chọn motif, xem motif của các bài gần nhất (dòng "Ảnh bìa" cuối bài). Motif đã dùng gần đây thì chọn motif khác. Nếu chưa có motif nào hợp với nội dung, thêm motif mới vào script, vẽ chi tiết và bám nội dung bài (ví dụ `doanh-thu`, `giai-the`).
+- Dòng chữ `--label` nêu đúng ý chính của bài, không chép lại tên chuyên mục. Khi đăng, thêm một dòng ghi nguồn ảnh vào `public/images/NGUON-ANH.txt`.
 
 ## 7. Kiểm tra trước khi gửi duyệt
 

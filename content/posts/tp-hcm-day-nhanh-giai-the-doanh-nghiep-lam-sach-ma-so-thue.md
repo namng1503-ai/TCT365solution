@@ -8,7 +8,7 @@ cover: "/images/tin-tuc/tp-hcm-day-nhanh-giai-the-doanh-nghiep-lam-sach-ma-so-th
 ---
 Chiều 22/10/2026, tại họp báo kinh tế – xã hội của TP.HCM, Sở Tài chính thành phố cho biết qua rà soát hệ thống, cơ quan đăng ký kinh doanh không còn hồ sơ giải thể doanh nghiệp quá hạn chưa trả kết quả. Các hồ sơ đã có xác nhận hoàn thành nghĩa vụ thuế đều đã được trả kết quả qua mạng.
 
-![Ảnh bìa minh họa: cửa hàng và biểu đồ](/images/tin-tuc/tp-hcm-day-nhanh-giai-the-doanh-nghiep-lam-sach-ma-so-thue.webp)
+![Ảnh bìa minh họa: hồ sơ giải thể, mã QR và hạn 2 ngày](/images/tin-tuc/tp-hcm-day-nhanh-giai-the-doanh-nghiep-lam-sach-ma-so-thue.webp)
 
 ## Các bước thành phố đã làm
 
@@ -54,7 +54,7 @@ Với cá nhân, nên định kỳ tra cứu xem thông tin của mình có đan
 
 ---
 
-*Ảnh bìa: cửa hàng và biểu đồ, minh họa thủ tục giải thể (tệp `tp-hcm-day-nhanh-giai-the-doanh-nghiep-lam-sach-ma-so-thue.webp`). Nguồn ảnh: TCT365 tự thiết kế.*
+*Ảnh bìa: hồ sơ giải thể có danh mục, mã QR và đồng hồ hạn 2 ngày, minh họa thủ tục giải thể (tệp `tp-hcm-day-nhanh-giai-the-doanh-nghiep-lam-sach-ma-so-thue.webp`). Nguồn ảnh: TCT365 tự thiết kế.*
 
 **Nguồn tin:**
 

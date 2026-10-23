@@ -8,7 +8,7 @@ cover: "/images/tin-tuc/da-nang-khoi-to-chu-ho-kinh-doanh-bia-tron-thue.webp"
 ---
 Công an xã Đại Lộc, TP Đà Nẵng, theo ủy quyền của Cơ quan Cảnh sát điều tra Công an TP Đà Nẵng, đã khởi tố vụ án và khởi tố bị can đối với chủ một hộ kinh doanh bia, nước giải khát về tội trốn thuế. Quyết định được ban hành ngày 13/10/2026 và công bố ngày 19/10/2026.
 
-![Ảnh bìa minh họa: hóa đơn và kính lúp](/images/tin-tuc/da-nang-khoi-to-chu-ho-kinh-doanh-bia-tron-thue.webp)
+![Ảnh bìa minh họa: hóa đơn, biểu đồ doanh thu và kính lúp](/images/tin-tuc/da-nang-khoi-to-chu-ho-kinh-doanh-bia-tron-thue.webp)
 
 ## Nội dung vụ việc
 
@@ -46,7 +46,7 @@ Hộ kinh doanh bán buôn, phân phối hàng hóa cho nhiều điểm bán là
 
 ---
 
-*Ảnh bìa: hóa đơn và kính lúp, minh họa việc rà soát doanh thu (tệp `da-nang-khoi-to-chu-ho-kinh-doanh-bia-tron-thue.webp`). Nguồn ảnh: TCT365 tự thiết kế.*
+*Ảnh bìa: hóa đơn, biểu đồ doanh thu thực tế so với kê khai và kính lúp, minh họa việc rà soát doanh thu (tệp `da-nang-khoi-to-chu-ho-kinh-doanh-bia-tron-thue.webp`). Nguồn ảnh: TCT365 tự thiết kế.*
 
 **Nguồn tin:**
 

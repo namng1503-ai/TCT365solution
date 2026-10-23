@@ -68,6 +68,46 @@ def background(rng):
             dots.ellipse(box(gx2 - 1.6, gy2 - 1.6, 3.2, 3.2), fill=(255, 255, 255, 12 if gx2 < 760 else 20))
     return img
 
+def background_sang(rng):
+    """Nền sáng: trắng chủ đạo, quầng xanh nhạt phía phải, lưới mảnh — tông chuyên nghiệp."""
+    img = Image.new('RGBA', (W * S, H * S), (255, 255, 255, 255))
+    d = ImageDraw.Draw(img)
+    # chuyển rất nhẹ từ trắng (trái) sang #F4F8FF (phải)
+    for xx in range(0, W * S, 4):
+        t = (xx / (W * S)) ** 1.6
+        c = tuple(int(255 * (1 - t) + v * t) for v in (240, 246, 255))
+        d.line([(xx, 0), (xx, H * S)], fill=c + (255,), width=4)
+    # quầng màu: lớp nền mang sẵn màu (alpha 0) để khi làm mờ không bị ám xám
+    for (col, a, ex, ey, er) in [((219, 234, 254), 230, rng.randint(1060, 1180), rng.randint(380, 480), 430),
+                                 ((254, 243, 199), 170, rng.randint(1320, 1420), rng.randint(120, 220), 200)]:
+        glow = Image.new('RGBA', img.size, col + (0,))
+        ImageDraw.Draw(glow).ellipse(box(ex - er, ey - er, 2 * er, 2 * er), fill=col + (a,))
+        img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(s(90))))
+    # lưới mảnh phía phải, mờ dần về bên trái (vẽ trên lớp riêng để pha trong suốt)
+    grid = Image.new('RGBA', img.size, (30, 64, 175, 0))
+    gd = ImageDraw.Draw(grid)
+    for xx in range(700, W, 56):
+        gd.line([s(xx), 0, s(xx), s(H)], fill=(30, 64, 175, 255), width=s(1))
+    for yy in range(28, H, 56):
+        gd.line([s(640), s(yy), s(W), s(yy)], fill=(30, 64, 175, 255), width=s(1))
+    fade = Image.new('L', (W, 1))
+    for xx in range(W):
+        fade.putpixel((xx, 0), int(16 * min(1, max(0, (xx - 640) / 360))))
+    a = grid.split()[3]
+    grid.putalpha(Image.composite(fade.resize(img.size), Image.new('L', img.size, 0), a))
+    img.alpha_composite(grid)
+    d = ImageDraw.Draw(img)
+    # vạch nhấn hổ phách bên trái
+    rrect(d, 0, 0, 10, H, 0, BRAND['amber'])
+    return img
+
+def card(img, x, y, w, h, r=20, fill=None, blur=26, alpha=38, dy=16):
+    """Thẻ trắng có bóng mềm + viền mảnh, dùng cho nền sáng."""
+    shadow(img, x, y, w, h, r, blur=blur, alpha=alpha, dy=dy)
+    d = ImageDraw.Draw(img)
+    rrect(d, x, y, w, h, r, fill or BRAND['white'], outline=(226, 232, 240), width=2)
+    return d
+
 def lines(d, x, y, w, n, gap, color, rng, thick=10):
     for i in range(n):
         ww = w * rng.uniform(0.55, 1.0)
@@ -186,8 +226,123 @@ def m_can_can(img, rng, cx, cy):
         d.pieslice(box(px_ - 100, py_ + 100, 200, 140), 0, 180, fill=BRAND['amber'])
     d.ellipse(box(cx - 30, cy - 250, 60, 60), fill=BRAND['amber'])
 
+SLATE, LINE, GREEN = (100, 116, 139), (226, 232, 240), (22, 163, 74)
+
+def m_doanh_thu(img, rng, cx, cy):
+    """Rà soát doanh thu: hóa đơn bán lẻ + thẻ biểu đồ doanh thu + kính lúp soi chênh lệch + chồng xu."""
+    # thẻ biểu đồ doanh thu (phía sau)
+    x, y, w, h = cx - 250, cy - 250, 470, 330
+    d = card(img, x, y, w, h, 22)
+    d.text((s(x + 32), s(y + 40)), 'Doanh thu', font=font(24), fill=BRAND['ink'], anchor='lm')
+    d.text((s(x + 32), s(y + 72)), 'Thực tế  vs  Kê khai', font=font(17, bold=False), fill=SLATE, anchor='lm')
+    rrect(d, x + w - 120, y + 28, 88, 30, 15, (254, 243, 199))
+    d.text((s(x + w - 76), s(y + 43)), '2025–26', font=font(15), fill=(180, 83, 9), anchor='mm')
+    base = y + h - 40
+    for i in range(1, 4):
+        d.line([s(x + 32), s(base - i * 55), s(x + w - 32), s(base - i * 55)], fill=LINE, width=s(2))
+    for i in range(6):
+        real = rng.randint(120, 175)
+        dec = int(real * rng.uniform(0.25, 0.45))
+        bx = x + 48 + i * 68
+        rrect(d, bx, base - real, 22, real, 6, BRAND['blue'])
+        rrect(d, bx + 26, base - dec, 22, dec, 6, (191, 219, 254))
+    d.line([s(x + 32), s(base), s(x + w - 32), s(base)], fill=(203, 213, 225), width=s(2))
+    # hóa đơn bán lẻ (phía trước, trái)
+    rx, ry, rw, rh = cx - 340, cy - 40, 230, 330
+    shadow(img, rx, ry, rw, rh, 6, alpha=45)
+    d = ImageDraw.Draw(img)
+    zig = [(s(rx), s(ry + rh - 14))]
+    for k in range(12):
+        zig.append((s(rx + (k + 0.5) * rw / 12), s(ry + rh)))
+        zig.append((s(rx + (k + 1) * rw / 12), s(ry + rh - 14)))
+    d.polygon([(s(rx), s(ry)), (s(rx + rw), s(ry))] + zig[::-1][:-1] + [zig[0]], fill=BRAND['white'])
+    d.rectangle(box(rx, ry, rw, rh - 14), fill=BRAND['white'], outline=LINE, width=s(2))
+    d.text((s(rx + rw / 2), s(ry + 34)), 'HÓA ĐƠN', font=font(20), fill=BRAND['blue'], anchor='mm')
+    d.line([s(rx + 22), s(ry + 60), s(rx + rw - 22), s(ry + 60)], fill=LINE, width=s(2))
+    for k in range(6):
+        yy = ry + 86 + k * 30
+        rrect(d, rx + 22, yy, rng.randint(70, 110), 9, 4, (203, 213, 225))
+        rrect(d, rx + rw - 72, yy, 50, 9, 4, (148, 163, 184))
+    d.line([s(rx + 22), s(ry + 270), s(rx + rw - 22), s(ry + 270)], fill=LINE, width=s(2))
+    rrect(d, rx + 22, ry + 286, 60, 12, 6, BRAND['ink'])
+    rrect(d, rx + rw - 102, ry + 282, 80, 18, 9, BRAND['amber'])
+    # chồng xu
+    for k in range(5):
+        ex, ey = cx + 170, cy + 250 - k * 22
+        d.ellipse(box(ex - 62, ey - 16, 124, 40), fill=(217, 119, 6))
+        d.ellipse(box(ex - 62, ey - 22, 124, 40), fill=BRAND['amber2'] if k % 2 else BRAND['amber'])
+    # kính lúp soi phần chênh lệch
+    lx, ly, r = cx + 90, cy + 20, 96
+    sh = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).ellipse(box(lx - r, ly - r + 16, 2 * r, 2 * r), fill=(15, 23, 42, 60))
+    img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(s(20))))
+    d = ImageDraw.Draw(img)
+    d.line([s(lx + r * 0.7), s(ly + r * 0.7), s(lx + r * 1.6), s(ly + r * 1.6)], fill=BRAND['navy'], width=s(26))
+    d.ellipse(box(lx - r, ly - r, 2 * r, 2 * r), fill=(239, 246, 255), outline=BRAND['navy'], width=s(14))
+    d.text((s(lx), s(ly - 12)), '!', font=font(56), fill=BRAND['amber'], anchor='mm')
+    d.text((s(lx), s(ly + 40)), 'chênh lệch', font=font(17), fill=BRAND['blue'], anchor='mm')
+
+def m_giai_the(img, rng, cx, cy):
+    """Thủ tục giải thể: hồ sơ có dấu 'Đã duyệt', danh mục tích xanh, thẻ mã QR, đồng hồ hạn 2 ngày."""
+    # bìa hồ sơ phía sau
+    fx, fy, fw, fh = cx - 300, cy - 230, 430, 470
+    shadow(img, fx, fy, fw, fh, 20, alpha=40)
+    d = ImageDraw.Draw(img)
+    rrect(d, fx, fy, 170, 60, 16, (191, 219, 254))
+    rrect(d, fx, fy + 30, fw, fh - 30, 20, (219, 234, 254), outline=(191, 219, 254), width=2)
+    # giấy danh mục
+    px_, py_, pw, ph = fx + 34, fy + 60, fw - 68, fh - 90
+    d = card(img, px_, py_, pw, ph, 14, blur=16, alpha=30, dy=8)
+    d.text((s(px_ + 28), s(py_ + 38)), 'Hồ sơ giải thể', font=font(24), fill=BRAND['ink'], anchor='lm')
+    d.text((s(px_ + 28), s(py_ + 68)), 'Chấm dứt mã số thuế', font=font(16, bold=False), fill=SLATE, anchor='lm')
+    d.line([s(px_ + 28), s(py_ + 92), s(px_ + pw - 28), s(py_ + 92)], fill=LINE, width=s(2))
+    for k in range(5):
+        yy = py_ + 122 + k * 50
+        done = k < 4
+        if done:
+            d.ellipse(box(px_ + 28, yy - 13, 26, 26), fill=GREEN)
+            d.line([s(px_ + 35), s(yy), s(px_ + 40), s(yy + 6), s(px_ + 48), s(yy - 6)], fill=BRAND['white'], width=s(4), joint='curve')
+        else:
+            d.ellipse(box(px_ + 28, yy - 13, 26, 26), outline=(203, 213, 225), width=s(3))
+        rrect(d, px_ + 70, yy - 6, rng.randint(150, 230), 12, 6, (203, 213, 225) if done else LINE)
+    # dấu đã duyệt (xoay)
+    st = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(st)
+    sx, sy = px_ + pw - 120, py_ + ph - 70
+    sd.rounded_rectangle(box(sx - 92, sy - 30, 184, 60), radius=s(10), outline=(220, 38, 38, 210), width=s(5))
+    sd.text((s(sx), s(sy)), 'ĐÃ DUYỆT', font=font(24), fill=(220, 38, 38, 210), anchor='mm')
+    img.alpha_composite(st.rotate(-12, center=(s(sx), s(sy)), resample=Image.BICUBIC))
+    # thẻ mã QR
+    qx, qy, qs = cx + 170, cy - 200, 210
+    d = card(img, qx, qy, qs, qs + 56, 18)
+    cell, n = 10, 15
+    ox, oy = qx + (qs - cell * n) / 2, qy + 26
+    grid = [[rng.random() < 0.5 for _ in range(n)] for _ in range(n)]
+    for (a, b) in [(0, 0), (0, n - 7), (n - 7, 0)]:
+        for i in range(7):
+            for j in range(7):
+                grid[a + i][b + j] = i in (0, 6) or j in (0, 6) or (2 <= i <= 4 and 2 <= j <= 4)
+        for i in range(-1, 8):
+            for j in range(-1, 8):
+                if 0 <= a + i < n and 0 <= b + j < n and not (0 <= i <= 6 and 0 <= j <= 6):
+                    grid[a + i][b + j] = False
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j]:
+                d.rectangle(box(ox + j * cell, oy + i * cell, cell, cell), fill=BRAND['navy'])
+    d.text((s(qx + qs / 2), s(qy + qs + 22)), 'Danh mục hồ sơ', font=font(16), fill=BRAND['blue'], anchor='mm')
+    # đồng hồ hạn 2 ngày làm việc
+    kx, ky, kr = cx + 260, cy + 190, 82
+    shadow(img, kx - kr, ky - kr, 2 * kr, 2 * kr, kr, alpha=40)
+    d = ImageDraw.Draw(img)
+    d.ellipse(box(kx - kr, ky - kr, 2 * kr, 2 * kr), fill=BRAND['amber'])
+    d.ellipse(box(kx - kr + 12, ky - kr + 12, 2 * kr - 24, 2 * kr - 24), fill=BRAND['white'])
+    d.text((s(kx), s(ky - 8)), '2', font=font(50), fill=BRAND['navy'], anchor='mm')
+    d.text((s(kx), s(ky + 30)), 'ngày', font=font(16), fill=SLATE, anchor='mm')
+
 MOTIFS = {'hoa-don': m_hoa_don, 'kinh-lup': m_kinh_lup, 'cua-hang': m_cua_hang, 'bieu-do': m_bieu_do,
-          'so-sach': m_so_sach, 'khien': m_khien, 'can-can': m_can_can}
+          'so-sach': m_so_sach, 'khien': m_khien, 'can-can': m_can_can,
+          'doanh-thu': m_doanh_thu, 'giai-the': m_giai_the}
 
 def main():
     ap = argparse.ArgumentParser()
@@ -195,9 +350,11 @@ def main():
     ap.add_argument('--category', required=True)
     ap.add_argument('--motif', choices=sorted(MOTIFS))
     ap.add_argument('--label', default='', help='Dòng chữ ngắn (<= 40 ký tự) dưới chuyên mục, tùy chọn')
+    ap.add_argument('--theme', choices=['sang', 'toi'], default='sang', help='sang = nền trắng (mặc định), toi = nền xanh đậm cũ')
     a = ap.parse_args()
     rng = random.Random(int(hashlib.md5(a.slug.encode()).hexdigest(), 16))
-    img = background(rng)
+    light = a.theme == 'sang'
+    img = background_sang(rng) if light else background(rng)
     motif = a.motif or DEFAULT_MOTIF.get(a.category, 'bieu-do')
     MOTIFS[motif](img, rng, 1080 + rng.randint(-40, 40), 450 + rng.randint(-20, 20))
 
@@ -206,8 +363,9 @@ def main():
     cat = a.category.upper()
     f_cat = font(30)
     tw = d.textlength(cat, font=f_cat) / S
-    rrect(d, 96, 110, tw + 56, 62, 31, BRAND['amber'])
-    d.text((s(124), s(141)), cat, font=f_cat, fill=BRAND['navy'], anchor='lm')
+    rrect(d, 96, 110, tw + 56, 62, 31, BRAND['blue'] if light else BRAND['amber'])
+    d.text((s(124), s(141)), cat, font=f_cat, fill=BRAND['white'] if light else BRAND['navy'], anchor='lm')
+    text_c = BRAND['navy'] if light else BRAND['white']
     if a.label:
         f_lab = font(54)
         words, cur, rows = a.label.split(), '', []
@@ -219,9 +377,11 @@ def main():
                 cur = t
         rows.append(cur)
         for i, r in enumerate(rows[:3]):
-            d.text((s(96), s(220 + i * 70)), r, font=f_lab, fill=BRAND['white'])
-    d.text((s(96), s(H - 96)), 'TCT365', font=font(34), fill=BRAND['white'], anchor='ls')
-    d.text((s(244), s(H - 96)), '·  Ảnh minh họa', font=font(24, bold=False), fill=(219, 234, 254, 220), anchor='ls')
+            d.text((s(96), s(220 + i * 70)), r, font=f_lab, fill=text_c)
+        if light:
+            rrect(d, 96, 220 + len(rows[:3]) * 70 + 24, 88, 8, 4, BRAND['amber'])
+    d.text((s(96), s(H - 96)), 'TCT365', font=font(34), fill=BRAND['blue'] if light else BRAND['white'], anchor='ls')
+    d.text((s(244), s(H - 96)), '·  Ảnh minh họa', font=font(24, bold=False), fill=SLATE if light else (219, 234, 254, 220), anchor='ls')
 
     out_dir = os.path.join(ROOT, 'public', 'images', 'tin-tuc')
     os.makedirs(out_dir, exist_ok=True)

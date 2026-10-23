@@ -1,0 +1,17 @@
+BỘ LOGO KHÁCH HÀNG - 43 khách (theo sheet DanhMuc_KH)
+
+Thư mục:
+- vuong-512/ : logo vuông 512x512 px, dùng cho ảnh đại diện, thẻ khách hàng, lưới logo.
+- ngang/     : logo ngang (logo + tên), dùng cho dải "Khách hàng tiêu biểu", chân trang.
+- danh_sach_logo.csv : mã KH, tên, MST, loại logo, đường dẫn file, nguồn.
+- xem_truoc_logo.png : ảnh xem nhanh toàn bộ logo.
+
+Tên file: <Mã KH>_<tên viết tắt>.png (ví dụ KH010_ptl.png).
+
+Loại logo:
+- Logo gốc tìm trên web (16 khách): chụp lại từ website/Facebook/TopCV của khách, nền trắng.
+  4 khách ghi "cần xác nhận" (KH028, KH029, KH031, KH037) nên kiểm tra lại trước khi đăng.
+  Logo lấy từ ảnh đại diện Facebook (KH011, KH026, KH029) có độ phân giải thấp hơn.
+- Logo tạo mới (27 khách): vẽ bằng canvas từ tên viết tắt, nền trong suốt.
+  Đây là logo đại diện tạm cho website, không phải logo chính thức của khách hàng.
+  KH022 Viet.mos: trên mạng chỉ có ảnh chụp biển hiệu, không có file logo, nên cũng dùng logo tạo mới.

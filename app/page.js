@@ -14,7 +14,6 @@ import aboutImg from '@/public/images/ky-ho-so.webp';
 export const revalidate = 60;
 
 const NEWS_LIMIT = 20; // chỉ 20 bài mới nhất chạy trong dải tin
-const isPending = v => String(v).includes('CẦN BỔ SUNG');
 
 export default async function Home() {
   const logos = getClientLogos();
@@ -27,10 +26,9 @@ export default async function Home() {
         <div className="wrap hero-grid">
           <div className="hero-copy">
             <p className="hero-kicker"><Icon name="shield" size={18} /> Đại lý thuế TCT365 · Hà Nội</p>
-            <h1>Kế toán, thuế và pháp lý doanh nghiệp — trọn gói, đúng hạn, an toàn.</h1>
+            <h1>Kế toán – Thuế – Pháp lý doanh nghiệp. Một đầu mối, trọn trách nhiệm.</h1>
             <p className="hero-lead">
-              Chúng tôi lo sổ sách, tờ khai, quyết toán và giấy phép để bạn dành thời gian cho việc kinh doanh.
-              Nhận chứng từ tận nơi hoặc qua Zalo, email.
+              Chúng tôi đảm nhận sổ sách, kê khai, quyết toán và thủ tục giấy phép đúng quy định, đúng thời hạn, để bạn tập trung điều hành và phát triển kinh doanh.
             </p>
             <div className="hero-cta">
               <a className="btn btn-primary btn-lg" href={telHref}><Icon name="phone" size={20} /> Gọi tư vấn {site.hotline}</a>
@@ -64,15 +62,7 @@ export default async function Home() {
         <div className="wrap about-grid">
           <div>
             <h2 className="section-title">{about.heading}</h2>
-            <blockquote className="about-quote">“{site.slogan}.”</blockquote>
             <p className="about-intro">{about.intro}</p>
-            <dl className="facts">
-              {about.facts.map(f => (
-                <div key={f.label} className={isPending(f.value) ? 'pending' : ''}>
-                  <dt>{f.label}</dt><dd>{f.value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
           <div className="pillars">
             <Image className="about-photo" src={aboutImg} alt="Chuyên viên kế toán rà soát và ký hồ sơ" sizes="(max-width: 900px) 100vw, 560px" placeholder="blur" />

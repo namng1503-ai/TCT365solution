@@ -17,7 +17,6 @@ export const site = {
   facebook: 'https://www.facebook.com/TCT365',
   taxCode: '0110295839',
   workingHours: '[CẦN BỔ SUNG]',
-  slogan: 'Thuế của bạn, kỹ năng của chúng tôi',
   motto: ['Tận tâm', 'Chuyên nghiệp', 'Thành công'],
 };
 
@@ -42,9 +41,6 @@ export const about = {
       title: 'Phương châm',
       text: 'An toàn – Trách nhiệm – Sẻ chia. Tư vấn chất lượng với mức phí hợp lý, bảo vệ quyền và lợi ích hợp pháp của khách hàng.',
     },
-  ],
-  facts: [
-    { label: 'Năm thành lập', value: '[CẦN BỔ SUNG]' },
   ],
 };
 

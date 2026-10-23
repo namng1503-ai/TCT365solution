@@ -35,7 +35,7 @@ public/images/          Ảnh nền Unsplash (nguồn trong NGUON-ANH.txt)
 ```
 
 ## Quy tắc nội dung (bắt buộc)
-- **Không bịa số liệu.** Thông tin chưa có ghi `[CẦN BỔ SUNG]` (MST, năm thành lập, số khách hàng, giờ làm việc trong `data/site.js`).
+- **Không bịa số liệu.** Thông tin chưa có ghi `[CẦN BỔ SUNG]` (năm thành lập, giờ làm việc trong `data/site.js`).
 - Không có phần "Ban lãnh đạo". Địa chỉ duy nhất: **432 Phạm Văn Đồng, Phường Đông Ngạc, TP Hà Nội**.
 - Không đưa bảng giá/thời hạn cũ; không dùng tên cơ quan đã sáp nhập (Sở KH&ĐT, UBND cấp huyện) — dùng "cơ quan đăng ký kinh doanh".
 - Văn phong: câu ngắn, chủ động, nói lợi ích thật từ nội dung gốc, không cam kết mới.

@@ -15,7 +15,7 @@ export const site = {
   email: 'support@tct365-tax.com',
   zalo: 'https://zalo.me/0942125266',
   facebook: 'https://www.facebook.com/TCT365',
-  taxCode: '[CẦN BỔ SUNG]',
+  taxCode: '0110295839',
   workingHours: '[CẦN BỔ SUNG]',
   slogan: 'Thuế của bạn, kỹ năng của chúng tôi',
   motto: ['Tận tâm', 'Chuyên nghiệp', 'Thành công'],
@@ -27,7 +27,8 @@ export const mapLink = `https://www.google.com/maps/search/?api=1&query=${encode
 
 export const about = {
   intro:
-    'TCT365 là đại lý thuế được cơ quan thuế cấp phép hoạt động trong lĩnh vực kê khai và tư vấn thuế. Bên cạnh dịch vụ thuế, chúng tôi hỗ trợ doanh nghiệp và cá nhân về giấy phép kinh doanh, xây dựng hệ thống kế toán – thuế nội bộ và đào tạo nhân sự kế toán.',
+    'TCT365 là đại lý thuế chính thức được cơ quan thuế cấp phép hoạt động, mang đến giải pháp kế toán – thuế trọn gói cho doanh nghiệp và cá nhân. Chúng tôi không chỉ thay bạn xử lý hoàn hảo các thủ tục kê khai, quyết toán và tư vấn pháp lý, mà còn đồng hành tối ưu chi phí, hoàn thiện hệ thống kế toán nội bộ và đào tạo nhân sự thực chiến — giúp nhà quản trị giải phóng áp lực số liệu để tự tin bứt phá.',
+  heading: 'TCT365 — An tâm nghiệp vụ, Điểm tựa thành công.',
   pillars: [
     {
       title: 'Tầm nhìn',
@@ -44,8 +45,6 @@ export const about = {
   ],
   facts: [
     { label: 'Năm thành lập', value: '[CẦN BỔ SUNG]' },
-    { label: 'Mã số thuế', value: site.taxCode },
-    { label: 'Số khách hàng đang phục vụ', value: '[CẦN BỔ SUNG]' },
   ],
 };
 

@@ -63,7 +63,7 @@ export default async function Home() {
       <section id="gioi-thieu" className="section">
         <div className="wrap about-grid">
           <div>
-            <h2 className="section-title">Về TCT365</h2>
+            <h2 className="section-title">{about.heading}</h2>
             <blockquote className="about-quote">“{site.slogan}.”</blockquote>
             <p className="about-intro">{about.intro}</p>
             <dl className="facts">

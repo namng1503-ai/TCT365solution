@@ -8,3 +8,5 @@ Icon: Lucide (https://lucide.dev), giấy phép ISC — nhúng trong components/
 - du-thao-luat-dnnvv-chon-cach-tinh-thue-doanh-thu-10-ty.webp: TCT365 tự thiết kế bằng scripts/tao-anh-bia.py (không dùng ảnh bên thứ ba)
 - da-nang-khoi-to-chu-ho-kinh-doanh-bia-tron-thue.webp: TCT365 tự thiết kế bằng scripts/tao-anh-bia.py (không dùng ảnh bên thứ ba)
 - tp-hcm-day-nhanh-giai-the-doanh-nghiep-lam-sach-ma-so-thue.webp: TCT365 tự thiết kế bằng scripts/tao-anh-bia.py (không dùng ảnh bên thứ ba)
+- de-xuat-thue-dat-bo-hoang-0-2-sua-3-luat-thue.webp: TCT365 tự thiết kế bằng scripts/tao-anh-bia.py (không dùng ảnh bên thứ ba)
+- tp-hcm-no-bao-hiem-xa-hoi-de-xuat-tam-hoan-xuat-canh.webp: TCT365 tự thiết kế bằng scripts/tao-anh-bia.py (không dùng ảnh bên thứ ba)

@@ -5,7 +5,7 @@ Cách dùng:
   python3 scripts/tao-anh-bia.py --slug <slug-bai> --category "Thuế" [--motif hoa-don] [--label "Dòng chữ ngắn"]
 
 Kết quả: public/images/tin-tuc/<slug>.webp  (đường dẫn dùng trong frontmatter: /images/tin-tuc/<slug>.webp)
-Motif: hoa-don, cua-hang, bieu-do, so-sach, khien, can-can, kinh-lup. Mặc định theo chuyên mục.
+Motif: hoa-don, cua-hang, bieu-do, so-sach, khien, can-can, kinh-lup, doanh-thu, giai-the, dat-dai, no-bao-hiem. Mặc định theo chuyên mục.
 Mỗi slug cho một biến thể bố cục/màu riêng (seed theo slug) nên các bài không trùng ảnh.
 Cần Pillow: pip install pillow --break-system-packages
 """
@@ -340,9 +340,114 @@ def m_giai_the(img, rng, cx, cy):
     d.text((s(kx), s(ky - 8)), '2', font=font(50), fill=BRAND['navy'], anchor='mm')
     d.text((s(kx), s(ky + 30)), 'ngày', font=font(16), fill=SLATE, anchor='mm')
 
+def m_dat_dai(img, rng, cx, cy):
+    """Thuế đất: bản đồ thửa đất (một thửa bỏ hoang có cỏ dại, gạch chéo), thẻ thuế suất và tờ thông báo thuế."""
+    # bản đồ thửa đất
+    x, y, w, h = cx - 400, cy - 230, 510, 420
+    d = card(img, x, y, w, h, 22)
+    d.text((s(x + 30), s(y + 38)), 'Bản đồ thửa đất', font=font(22), fill=BRAND['ink'], anchor='lm')
+    d.text((s(x + 30), s(y + 66)), 'Đất phi nông nghiệp', font=font(15, bold=False), fill=SLATE, anchor='lm')
+    gx, gy, cw, ch, gap = x + 30, y + 92, 104, 94, 8
+    idle = (1, 2)
+    for r in range(3):
+        for c in range(4):
+            px_, py_ = gx + c * (cw + gap), gy + r * (ch + gap)
+            if (r, c) == idle:
+                rrect(d, px_, py_, cw, ch, 10, (254, 243, 199), outline=BRAND['amber'], width=4)
+                hatch = Image.new('RGBA', (s(cw - 12), s(ch - 12)), (0, 0, 0, 0))
+                hd = ImageDraw.Draw(hatch)
+                for k in range(-ch, cw, 18):  # gạch chéo, cắt gọn trong thửa
+                    hd.line([s(k), s(ch), s(k + ch), 0], fill=(253, 224, 140, 255), width=s(3))
+                img.alpha_composite(hatch, (s(px_ + 6), s(py_ + 6)))
+                d = ImageDraw.Draw(img)
+                for k in range(5):  # cỏ dại
+                    bx, by = px_ + 18 + k * 17, py_ + ch - 16
+                    for dx in (-7, 0, 7):
+                        d.line([s(bx), s(by), s(bx + dx), s(by - rng.randint(18, 30))], fill=GREEN, width=s(3))
+            else:
+                col = [BRAND['sky'], (226, 232, 240), (191, 219, 254)][(r + c) % 3]
+                rrect(d, px_, py_, cw, ch, 10, col)
+                if (r + c) % 2 == 0:  # mái nhà nhỏ = đất đang sử dụng
+                    hx, hy = px_ + cw / 2, py_ + ch / 2 + 6
+                    rrect(d, hx - 22, hy - 6, 44, 30, 4, BRAND['white'])
+                    d.polygon([(s(hx - 30), s(hy - 4)), (s(hx), s(hy - 30)), (s(hx + 30), s(hy - 4))], fill=BRAND['blue'])
+    # ghim vị trí trên thửa bỏ hoang
+    pxc, pyc = gx + 2 * (cw + gap) + cw / 2, gy + 1 * (ch + gap) - 6
+    d.ellipse(box(pxc - 22, pyc - 52, 44, 44), fill=BRAND['amber'])
+    d.polygon([(s(pxc - 16), s(pyc - 22)), (s(pxc + 16), s(pyc - 22)), (s(pxc), s(pyc + 6))], fill=BRAND['amber'])
+    d.ellipse(box(pxc - 9, pyc - 39, 18, 18), fill=BRAND['white'])
+    # thẻ thuế suất
+    tx, ty, tw, th = cx + 120, cy - 250, 230, 170
+    d = card(img, tx, ty, tw, th, 20, fill=BRAND['navy'])
+    d.text((s(tx + tw / 2), s(ty + 40)), 'Thuế suất đề xuất', font=font(17, bold=False), fill=(191, 219, 254), anchor='mm')
+    d.text((s(tx + tw / 2), s(ty + 98)), '0,2%', font=font(62), fill=BRAND['amber2'], anchor='mm')
+    d.text((s(tx + tw / 2), s(ty + 144)), 'đất bỏ hoang', font=font(17), fill=BRAND['white'], anchor='mm')
+    # tờ thông báo thuế
+    nx, ny, nw, nh = cx + 150, cy - 40, 220, 270
+    d = card(img, nx, ny, nw, nh, 16)
+    rrect(d, nx, ny, nw, 54, 16, BRAND['blue'])
+    d.rectangle(box(nx, ny + 34, nw, 20), fill=BRAND['blue'])
+    d.text((s(nx + nw / 2), s(ny + 28)), 'Dự thảo luật', font=font(19), fill=BRAND['white'], anchor='mm')
+    for k in range(4):
+        rrect(d, nx + 24, ny + 80 + k * 32, rng.randint(110, 170), 10, 5, (203, 213, 225))
+    tagx = nx + 18
+    for lab in ['TNDN', 'TNCN', 'Đất PNN']:
+        tw_ = d.textlength(lab, font=font(12)) / S + 18
+        rrect(d, tagx, ny + nh - 50, tw_, 28, 14, (254, 243, 199))
+        d.text((s(tagx + tw_ / 2), s(ny + nh - 36)), lab, font=font(12), fill=(180, 83, 9), anchor='mm')
+        tagx += tw_ + 6
+
+def m_no_bao_hiem(img, rng, cx, cy):
+    """Nợ BHXH: thẻ lịch sử đóng 12 tháng (tháng chậm đóng màu đỏ), sổ BHXH, nhãn cảnh báo và đồng hồ cát."""
+    RED, RED_SOFT = (220, 38, 38), (254, 226, 226)
+    # thẻ lịch sử đóng
+    x, y, w, h = cx - 330, cy - 260, 500, 330
+    d = card(img, x, y, w, h, 22)
+    d.text((s(x + 30), s(y + 40)), 'Lịch sử đóng BHXH', font=font(23), fill=BRAND['ink'], anchor='lm')
+    d.text((s(x + 30), s(y + 70)), 'BHXH · BHYT · BHTN', font=font(15, bold=False), fill=SLATE, anchor='lm')
+    late = set(rng.sample(range(5, 12), 4))
+    for i in range(12):
+        r, c = divmod(i, 6)
+        bx, by = x + 30 + c * 74, y + 104 + r * 104
+        bad = i in late
+        rrect(d, bx, by, 62, 86, 12, RED_SOFT if bad else (220, 252, 231), outline=RED if bad else GREEN, width=2)
+        d.text((s(bx + 31), s(by + 24)), f'T{i + 1}', font=font(16), fill=BRAND['ink'], anchor='mm')
+        if bad:
+            d.line([s(bx + 20), s(by + 46), s(bx + 42), s(by + 68)], fill=RED, width=s(5))
+            d.line([s(bx + 42), s(by + 46), s(bx + 20), s(by + 68)], fill=RED, width=s(5))
+        else:
+            d.line([s(bx + 18), s(by + 58), s(bx + 28), s(by + 68), s(bx + 45), s(by + 46)], fill=GREEN, width=s(5), joint='curve')
+    # sổ BHXH (phía trước, dưới trái)
+    bx, by, bw, bh = cx - 400, cy + 140, 250, 170
+    shadow(img, bx, by, bw, bh, 16, alpha=50)
+    d = ImageDraw.Draw(img)
+    rrect(d, bx, by, bw, bh, 16, BRAND['blue'])
+    rrect(d, bx + 14, by + 14, bw - 28, bh - 28, 10, None, outline=(147, 197, 253), width=2)
+    d.ellipse(box(bx + bw / 2 - 26, by + 26, 52, 52), outline=BRAND['amber2'], width=s(5))
+    d.text((s(bx + bw / 2), s(by + 52)), '+', font=font(32), fill=BRAND['amber2'], anchor='mm')
+    d.text((s(bx + bw / 2), s(by + 106)), 'SỔ BẢO HIỂM', font=font(20), fill=BRAND['white'], anchor='mm')
+    d.text((s(bx + bw / 2), s(by + 134)), 'XÃ HỘI', font=font(20), fill=BRAND['white'], anchor='mm')
+    # nhãn cảnh báo chậm đóng
+    wx, wy, ww, wh = cx - 110, cy + 150, 300, 92
+    d = card(img, wx, wy, ww, wh, 18)
+    d.polygon([(s(wx + 52), s(wy + 20)), (s(wx + 82), s(wy + 72)), (s(wx + 22), s(wy + 72))], fill=BRAND['amber'])
+    d.text((s(wx + 52), s(wy + 54)), '!', font=font(28), fill=BRAND['white'], anchor='mm')
+    d.text((s(wx + 104), s(wy + 34)), 'Chậm đóng', font=font(24), fill=RED, anchor='lm')
+    d.text((s(wx + 104), s(wy + 64)), 'quyền lợi bị ảnh hưởng', font=font(15, bold=False), fill=SLATE, anchor='lm')
+    # đồng hồ cát
+    hx, hy = cx + 270, cy - 170
+    d = card(img, hx - 70, hy - 90, 140, 200, 20)
+    rrect(d, hx - 46, hy - 70, 92, 14, 7, BRAND['navy'])
+    rrect(d, hx - 46, hy + 76, 92, 14, 7, BRAND['navy'])
+    d.polygon([(s(hx - 36), s(hy - 56)), (s(hx + 36), s(hy - 56)), (s(hx + 4), s(hy + 6)), (s(hx - 4), s(hy + 6))], fill=BRAND['sky'], outline=BRAND['blue'])
+    d.polygon([(s(hx - 4), s(hy + 6)), (s(hx + 4), s(hy + 6)), (s(hx + 36), s(hy + 76)), (s(hx - 36), s(hy + 76))], fill=BRAND['sky'], outline=BRAND['blue'])
+    d.polygon([(s(hx - 18), s(hy - 26)), (s(hx + 18), s(hy - 26)), (s(hx), s(hy + 2))], fill=BRAND['amber'])
+    d.polygon([(s(hx - 30), s(hy + 76)), (s(hx + 30), s(hy + 76)), (s(hx), s(hy + 44))], fill=BRAND['amber'])
+
 MOTIFS = {'hoa-don': m_hoa_don, 'kinh-lup': m_kinh_lup, 'cua-hang': m_cua_hang, 'bieu-do': m_bieu_do,
           'so-sach': m_so_sach, 'khien': m_khien, 'can-can': m_can_can,
-          'doanh-thu': m_doanh_thu, 'giai-the': m_giai_the}
+          'doanh-thu': m_doanh_thu, 'giai-the': m_giai_the,
+          'dat-dai': m_dat_dai, 'no-bao-hiem': m_no_bao_hiem}
 
 def main():
     ap = argparse.ArgumentParser()
